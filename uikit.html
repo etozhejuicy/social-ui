@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
+	<meta name="description"
+		content="Здесь представлен UI-Kit для сайта S-Telecom" />
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon-180x180.png">
+	<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+	<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon-192x192.png">
+	<link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="./assets/favicon-144x144.png">
+	<meta name="msapplication-config" content="./assets/browserconfig.xml">
+
+	<!-- primary styles -->
+	<link rel="stylesheet" href="./dist/css/app.min.css" />
+
+	<title>UI-Kit S-Telecom</title>
+
+    <style>
+        .container-uikit {
+            display: grid; 
+            grid-template-rows: auto auto; 
+            grid-template-columns: auto auto auto; 
+            grid-auto-flow: row dense; 
+            gap: 20px;
+        }
+
+        .container-uikit > div {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            max-width: 100%;
+        }
+
+        @media (max-width: 1000px) {
+            .container-uikit {
+                grid-template-columns: auto auto;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .container-uikit {
+                grid-template-columns: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+	<main>
+		<section style="padding: 40px 0;">
+			<div class="container container-uikit">
+				<div>
+                    <div>
+                        <p>Шрифт:</p>
+                        <b>Inter</b>
+                    </div>
+            
+                    <div style="display: flex;flex-direction: row;flex-wrap: wrap;gap: 20px;">
+                        <div style="display: flex;flex-direction: column;gap: 10px;">
+                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--blue);"></div>
+                            <p>--blue: #2655b8;</p>
+                        </div>
+                        <div style="display: flex;flex-direction: column;gap: 10px;">
+                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--orange);"></div>
+                            <p>--orange: #f2a564;</p>
+                        </div>
+                        <div style="display: flex;flex-direction: column;gap: 10px;">
+                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--dark);"></div>
+                            <p>--dark: #32353c;</p>
+                        </div>
+                        <div style="display: flex;flex-direction: column;gap: 10px;">
+                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--dark-grey);"></div>
+                            <p>--dark-grey: #5f5f5f;</p>
+                        </div>
+                        <div style="display: flex;flex-direction: column;gap: 10px;">
+                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--grey);"></div>
+                            <p>--grey: #e4e4e4;</p>
+                        </div>
+                        <div style="display: flex;flex-direction: column;gap: 10px;">
+                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--light-grey);"></div>
+                            <p>--light-grey: #f3f3f7;</p>
+                        </div>
+                    </div>
+                </div>
+		
+				<div>
+					<h1>H1: 40px -> 25px</h1>
+					<h2>H2: 24px -> 20px</h2>
+					<h3>H3: 25px -> 16px</h3>
+					<h4>H4: 18px -> 14px</h4>
+					<h5>H5: 18px -> 11px</h5>
+					<h6>H6: 16px -> 16px ?</h6>
+				</div>
+		
+				<div>
+					<b>Жирный текст</b>
+					<br />
+					<strong>Strong текст</strong>
+					<br />
+					<small>Small текст без класса: 14px</small>
+					<br />
+					<p>Параграф без класса: 18px -> 14px</p>
+					<p class="small">Параграф .small: 15px -> 14px</p>
+				</div>
+		
+				<div style="display: flex; flex-direction: column; gap: 4px;">
+					<span>Размер шрифта ссылок: 18px -> 14px</span>
+					<a href="#">Ссылка без класса</a>
+					<a href="#" class="underlined">Ссылка с классом .underlined</a>
+					<a href="tel:+7 (473) 211-06-36" target="_blank" class="contact-block" title="Позвонить по номеру">
+						<i class="icon-phone"></i>
+						<span>+7 (473) 211-06-36</span>
+					</a>
+				</div>
+		
+                <div>
+                    <p>Списки макрированный/нумерованный:</p>
+                    <div style="display: flex;">
+                        <ul style="margin: 0;">
+                            <li>ul список 1</li>
+                            <li>ul список 2</li>
+                            <li>ul список 3</li>
+                        </ul>
+                        <ol style="margin: 0;">
+                            <li>ol список 1</li>
+                            <li>ol список 2</li>
+                            <li>ol список 3</li>
+                        </ol>
+                    </div>
+                </div>
+		
+				<div>
+					<p>Простой инпут без класса: (Отступ: 14px 20px; Шрифт: 16px -> 14px;)</p>
+					<input type="text" value="" placeholder="Введите текст..." />
+		
+					<br /><br />
+
+					<p>Простая текстэриа без класса: (Отступ: 14px 20px; Шрифт: 16px -> 14px; 3 строки)</p>
+					<textarea type="text" class="textarea" name="comment" rows="3" placeholder="Комментарий"></textarea>
+
+					<br /><br />
+		
+					<p>Инпут с поиском:</p>
+					<form action="?" class="header-search">
+						<input type="text" class="input input__search" value="" placeholder="Введите название или код товара" />
+						<button type="submit" class="btn-icon">
+							<i class="icon-search"></i>
+						</button>
+					</form>
+		
+					<br />
+					<p>Счетчики товаров:</p>
+					<div class="counter">
+						<button type="button" class="btn-outline-blue counter-minus">
+							<i class="icon-minus"></i>
+						</button>
+						<input type="number" id="counter-1" value="1" min="1" max="9999" disabled="" />
+						<button type="button" class="btn-outline-blue counter-plus">
+							<i class="icon-plus"></i>
+						</button>
+					</div>
+				</div>
+
+		
+				<div>
+					<p>Кнопка без класса (размер шрифта: 18px -> 16px):</p>
+					<button>
+						Кнопка
+					</button>
+
+					<br />
+					<br />
+		
+					<p>Кнопка с классом:</p>
+					<button class="btn-icon">
+						<i class="icon-menu"></i>
+						<span>Каталог</span>
+					</button>
+
+					<br />
+
+					<p>Кнопка с классом btn-orange:</p>
+					<button class="btn btn-orange">
+						Хочу КП
+					</button>
+
+					<br />
+					<br />
+					
+					<p>Синяя кнопка с классом btn-effect:</p>
+					<button class="btn btn-blue btn-effect">
+						Эффект на кнопке
+					</button>
+
+					<br />
+					<br />
+					
+					<p>Оранжевая кнопка с классом btn-effect:</p>
+					<button class="btn btn-orange btn-effect">
+						Эффект на кнопке
+					</button>
+
+					<br />
+					<br />
+
+					<p>Неактивная кнопка:</p>
+					<button type="button" disabled>
+						Эффект на кнопке
+					</button>
+					
+					<br />
+					<br />
+
+					<div class="social-block">
+						<a href="javascript://" target="_blank" title="Связаться с нами в Телеграмм" class="social-link">
+							<i class="icon-tg"></i>
+						</a>
+						<a href="javascript://" target="_blank" title="Связаться с нами в WhatsApp" class="social-link">
+							<i class="icon-whatsapp"></i>
+						</a>
+						<a href="javascript://" target="_blank" title="Связаться с нами в ВКонтакте" class="social-link">
+							<i class="icon-vk"></i>
+						</a>
+					</div>
+
+					<br />
+
+					<div class="social-block">
+						<a href="javascript://" target="_blank" title="Связаться с нами в Телеграмм"
+							class="social-link social-link__blue">
+							<i class="icon-tg"></i>
+						</a>
+						<a href="javascript://" target="_blank" title="Связаться с нами в WhatsApp"
+							class="social-link social-link__blue">
+							<i class="icon-whatsapp"></i>
+						</a>
+						<a href="javascript://" target="_blank" title="Связаться с нами в ВКонтакте"
+							class="social-link social-link__blue">
+							<i class="icon-vk"></i>
+						</a>
+					</div>
+				</div>
+		
+				<div>
+					<i class="icon icon-arrow-left"></i>
+					<i class="icon icon-arrow-right"></i>
+					<i class="icon icon-arrow-up"></i>
+					<i class="icon icon-bell"></i>
+					<i class="icon icon-cart"></i>
+					<i class="icon icon-catalog"></i>
+					<i class="icon icon-compare"></i>
+					<i class="icon icon-cross"></i>
+					<i class="icon icon-external-link"></i>
+					<i class="icon icon-favorite"></i>
+					<i class="icon icon-hot"></i>
+					<i class="icon icon-label"></i>
+					<i class="icon icon-location"></i>
+					<i class="icon icon-mail"></i>
+					<i class="icon icon-menu"></i>
+					<i class="icon icon-minus"></i>
+					<i class="icon icon-percent"></i>
+					<i class="icon icon-phone"></i>
+					<i class="icon icon-plus"></i>
+					<i class="icon icon-search"></i>
+					<i class="icon icon-service"></i>
+					<i class="icon icon-stopwatch"></i>
+					<i class="icon icon-tg"></i>
+					<i class="icon icon-vk"></i>
+					<i class="icon icon-whatsapp"></i>
+				</div>
+
+				<div>
+					<div class="slider">
+						<div class="pagination" style="display: flex;">
+							<div class="pagination-dot active"></div>
+							<div class="pagination-dot"></div>
+							<div class="pagination-dot"></div>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<div class="slider">
+						<div class="scrollbar">
+							<div class="scrollbar-thumb"></div>
+						</div>
+					</div>
+				</div>
+		
+				<div>
+					<div class="pagination-numbers">
+						<a href="#" class="deactive">
+							<i class="icon icon-arrow-left"></i>
+						</a>
+						<a href="#" class="active">1</a>
+						<a href="#">2</a>
+						<a href="#">3</a>
+						<a href="#">...</a>
+						<a href="#">8</a>
+						<a href="#">9</a>
+						<a href="#">10</a>
+						<a href="#">
+							<i class="icon icon-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+
+</html>

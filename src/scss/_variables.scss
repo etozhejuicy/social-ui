@@ -1,18 +1,5 @@
 :root {
   --blue: #2655b8;
-  --blue-400: #5181b8;
-  --blue-420: #4a76a8;
-  --blue-600: #2a5885;
-  --blue-640: #224b7a;
-  --blue-800: #1d3a5c;
-  --light-blue-40: #e5ebf1;
-  --light-blue-80: #dfe6ed;
-  --light-blue-100: #dae2ea;
-  --light-blue-300: #9eb4c8;
-  --light-blue-305: #8fadc8;
-  --light-blue-400: #7996b2;
-  --light-blue-500: #577ca1;
-  --light-blue-700: #45688e;
   --green: #26b857;
   --orange: #f78a31;
   --red: #f73131;
@@ -23,6 +10,78 @@
   --grey: #e4e4e4;
   --light-grey: #f3f3f7;
   --text-muted: #a5a5a5;
+
+  // Оттенки и тона для каждого цвета
+  // Blue
+  --blue-darker-1: #{darken(#2655b8, 10%)};
+  --blue-darker-2: #{darken(#2655b8, 20%)};
+  --blue-darker-3: #{darken(#2655b8, 30%)};
+  --blue-lighter-1: #{lighten(#2655b8, 10%)};
+  --blue-lighter-2: #{lighten(#2655b8, 20%)};
+  --blue-lighter-3: #{lighten(#2655b8, 30%)};
+
+  // Green
+  --green-darker-1: #{darken(#26b857, 10%)};
+  --green-darker-2: #{darken(#26b857, 20%)};
+  --green-darker-3: #{darken(#26b857, 30%)};
+  --green-lighter-1: #{lighten(#26b857, 10%)};
+  --green-lighter-2: #{lighten(#26b857, 20%)};
+  --green-lighter-3: #{lighten(#26b857, 30%)};
+
+  // Orange
+  --orange-darker-1: #{darken(#f78a31, 10%)};
+  --orange-darker-2: #{darken(#f78a31, 20%)};
+  --orange-darker-3: #{darken(#f78a31, 30%)};
+  --orange-lighter-1: #{lighten(#f78a31, 10%)};
+  --orange-lighter-2: #{lighten(#f78a31, 20%)};
+  --orange-lighter-3: #{lighten(#f78a31, 30%)};
+
+  // Red
+  --red-darker-1: #{darken(#f73131, 10%)};
+  --red-darker-2: #{darken(#f73131, 20%)};
+  --red-darker-3: #{darken(#f73131, 30%)};
+  --red-lighter-1: #{lighten(#f73131, 10%)};
+  --red-lighter-2: #{lighten(#f73131, 20%)};
+  --red-lighter-3: #{lighten(#f73131, 30%)};
+
+  // Pink
+  --pink-darker-1: #{darken(#ff51b1, 10%)};
+  --pink-darker-2: #{darken(#ff51b1, 20%)};
+  --pink-darker-3: #{darken(#ff51b1, 30%)};
+  --pink-lighter-1: #{lighten(#ff51b1, 10%)};
+  --pink-lighter-2: #{lighten(#ff51b1, 20%)};
+  --pink-lighter-3: #{lighten(#ff51b1, 30%)};
+
+  // Purple
+  --purple-darker-1: #{darken(#8c14cd, 10%)};
+  --purple-darker-2: #{darken(#8c14cd, 20%)};
+  --purple-darker-3: #{darken(#8c14cd, 30%)};
+  --purple-lighter-1: #{lighten(#8c14cd, 10%)};
+  --purple-lighter-2: #{lighten(#8c14cd, 20%)};
+  --purple-lighter-3: #{lighten(#8c14cd, 30%)};
+
+  // Dark
+  --dark-darker-1: #{darken(#32353c, 10%)};
+  --dark-darker-2: #{darken(#32353c, 20%)};
+  --dark-lighter-1: #{lighten(#32353c, 10%)};
+  --dark-lighter-2: #{lighten(#32353c, 20%)};
+
+  // Dark Grey
+  --dark-grey-darker-1: #{darken(#5f5f5f, 10%)};
+  --dark-grey-darker-2: #{darken(#5f5f5f, 20%)};
+  --dark-grey-lighter-1: #{lighten(#5f5f5f, 10%)};
+  --dark-grey-lighter-2: #{lighten(#5f5f5f, 20%)};
+
+  // Grey
+  --grey-darker-1: #{darken(#e4e4e4, 10%)};
+  --grey-darker-2: #{darken(#e4e4e4, 20%)};
+  --grey-lighter-1: #{lighten(#e4e4e4, 10%)};
+  --grey-lighter-2: #{lighten(#e4e4e4, 20%)};
+
+  // Light Grey
+  --light-grey-darker-1: #{darken(#f3f3f7, 10%)};
+  --light-grey-lighter-1: #{lighten(#f3f3f7, 10%)};
+
   --container-padding: 10px;
   --swiper-pagination-bullet-horizontal-gap: 6px;
   --swiper-navigation-size: 40px;
@@ -1187,8 +1246,8 @@ button {
   user-select: none;
   text-transform: none;
   border-radius: 8px;
-  border: 1px solid var(--blue-400);
-  background-color: var(--blue-400);
+  border: 1px solid var(--blue);
+  background-color: var(--blue);
   transition: 0.25s ease-in-out;
 
   @media (max-width: 991px) {
@@ -1196,14 +1255,16 @@ button {
     font-size: 14px;
   }
 
-  &:hover {
-    background-color: var(--blue-600);
-    border-color: var(--blue-600);
+  &:hover,
+  &:active {
+    background-color: var(--blue-darker-1);
+    border-color: var(--blue-darker-1);
     color: #ffffff;
   }
 
   &:focus:active {
-    border-color: transparent;
+    background-color: var(--blue-darker-2);
+    border-color: var(--blue-darker-2);
   }
 
   &.disabled,
@@ -1800,10 +1861,15 @@ input[type='radio'] {
   }
 }
 
-// input
+// Стили для всех input
 .input,
-input[type='text'] {
-  display: inline;
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='search'],
+textarea {
+  display: inline-block; // Изменено на inline-block для лучшего управления размерами
   padding: 14px 20px;
   font-weight: 400;
   font-size: 15px;
@@ -1813,7 +1879,7 @@ input[type='text'] {
   border: 1px solid var(--grey);
   background-color: #ffffff;
   outline: none;
-  transition: 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 
   @media (max-width: 720px) {
     font-size: 14px;
@@ -1821,22 +1887,24 @@ input[type='text'] {
 
   &::placeholder {
     color: var(--dark-grey);
-    transition: 0.25s ease-in-out;
+    transition: color 0.25s ease-in-out;
   }
 
   &:focus {
-    border-color: var(--grey);
+    border-color: var(--blue); // Изменено на более заметный цвет при фокусе
+    box-shadow: 0 0 5px rgba(38, 85, 184, 0.5); // Добавлен эффект тени при фокусе
 
     &::placeholder {
-      color: transparent;
-      transition: 0.25s ease-in-out;
+      color: transparent; // Скрыть текст плейсхолдера при фокусе
+      transition: color 0.25s ease-in-out;
     }
   }
 
-  &.input__search {
-    @media (max-width: 720px) {
-      padding: 6px 10px;
-    }
+  &:disabled {
+    background-color: var(--light-grey); // Цвет фона для отключенных полей
+    border-color: var(--dark-grey); // Цвет границы для отключенных полей
+    color: var(--dark-grey); // Цвет текста для отключенных полей
+    cursor: not-allowed; // Курсор для отключенных полей
   }
 }
 
@@ -1907,41 +1975,6 @@ input[type='number'] {
 
     & > input {
       width: 100%;
-    }
-  }
-}
-
-// textarea
-.textarea,
-textarea {
-  display: inline;
-  padding: 14px 20px;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.25;
-  color: var(--dark);
-  border-radius: 0;
-  border: 1px solid var(--grey);
-  background-color: #ffffff;
-  outline: none;
-  resize: none;
-  transition: 0.25s ease-in-out;
-
-  @media (max-width: 720px) {
-    font-size: 14px;
-  }
-
-  &::placeholder {
-    color: var(--dark-grey);
-    transition: 0.25s ease-in-out;
-  }
-
-  &:focus {
-    border-color: var(--grey);
-
-    &::placeholder {
-      color: transparent;
-      transition: 0.25s ease-in-out;
     }
   }
 }

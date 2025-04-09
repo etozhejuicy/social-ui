@@ -1286,45 +1286,10 @@ button {
     display: none;
   }
 
-  &-effect {
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 0;
-      height: 100%;
-      background-color: var(--orange);
-      // transform: translateX(-100%);
-      transition: 0.25s ease-in-out;
-    }
-
-    &:hover {
-      &::before {
-        width: 100%;
-        // transform: translateX(0);
-        transition: 0.25s ease-in-out;
-      }
-    }
-
-    &-orange {
-      &::before {
-        background-color: var(--orange) !important;
-      }
-    }
-  }
-
   &-blue {
-    background-color: var(--blue-400);
-    border-color: var(--blue-400);
+    background-color: var(--blue);
+    border-color: var(--blue);
     color: #ffffff;
-
-    &.btn-effect {
-      &::before {
-        background-color: var(--orange);
-      }
-    }
   }
 
   &-orange {
@@ -1332,24 +1297,17 @@ button {
     border-color: var(--orange);
     color: var(--dark);
 
-    &.btn-effect {
+    &:hover,
+    &:active {
       color: #ffffff;
-
-      &::before {
-        background-color: var(--blue-400);
-      }
-    }
-
-    &:hover {
-      color: #ffffff;
-      background-color: var(--blue-400);
-      border-color: var(--blue-400);
+      background-color: var(--orange-darker-1);
+      border-color: var(--orange-darker-1);
     }
 
     &:focus:active {
       color: #ffffff;
-      background-color: var(--blue-400);
-      border-color: var(--blue-400);
+      background-color: var(--orange-darker-2);
+      border-color: var(--orange-darker-2);
     }
   }
 
@@ -1358,10 +1316,11 @@ button {
     border-color: var(--grey);
     color: var(--dark);
 
-    &:hover {
-      background-color: var(--dark-grey);
-      border-color: var(--dark-grey);
-      color: var(--light-grey);
+    &:hover,
+    &:active {
+      background-color: var(--grey-darker-1);
+      border-color: var(--grey-darker-1);
+      color: var(--grey-darker-2);
     }
 
     &:focus:active {

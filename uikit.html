@@ -3,9 +3,9 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
-	<meta name="description"
-		content="Здесь представлен UI-Kit для сайта S-Telecom" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
+	<meta name="description" content="Здесь представлен UI-Kit для сайта lineholod.ru" />
 	<meta name="format-detection" content="telephone=no">
 
 	<!-- favicon -->
@@ -32,191 +32,215 @@
 	<!-- primary styles -->
 	<link rel="stylesheet" href="./dist/css/app.min.css" />
 
-	<title>UI-Kit S-Telecom</title>
-
-    <style>
-        .container-uikit {
-            display: grid; 
-            grid-template-rows: auto auto; 
-            grid-template-columns: auto auto auto; 
-            grid-auto-flow: row dense; 
-            gap: 20px;
-        }
-
-        .container-uikit > div {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            max-width: 100%;
-        }
-
-        @media (max-width: 1000px) {
-            .container-uikit {
-                grid-template-columns: auto auto;
-            }
-        }
-
-        @media (max-width: 720px) {
-            .container-uikit {
-                grid-template-columns: auto;
-            }
-        }
-    </style>
+	<title>UI-Kit: Линия Холода</title>
 </head>
 
 <body>
 	<main>
 		<section style="padding: 40px 0;">
-			<div class="container container-uikit">
-				<div>
-                    <div>
-                        <p>Шрифт:</p>
-                        <b>Inter</b>
-                    </div>
-            
-                    <div style="display: flex;flex-direction: row;flex-wrap: wrap;gap: 20px;">
-                        <div style="display: flex;flex-direction: column;gap: 10px;">
-                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--blue);"></div>
-                            <p>--blue: #2655b8;</p>
-                        </div>
-                        <div style="display: flex;flex-direction: column;gap: 10px;">
-                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--orange);"></div>
-                            <p>--orange: #f2a564;</p>
-                        </div>
-                        <div style="display: flex;flex-direction: column;gap: 10px;">
-                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--dark);"></div>
-                            <p>--dark: #32353c;</p>
-                        </div>
-                        <div style="display: flex;flex-direction: column;gap: 10px;">
-                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--dark-grey);"></div>
-                            <p>--dark-grey: #5f5f5f;</p>
-                        </div>
-                        <div style="display: flex;flex-direction: column;gap: 10px;">
-                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--grey);"></div>
-                            <p>--grey: #e4e4e4;</p>
-                        </div>
-                        <div style="display: flex;flex-direction: column;gap: 10px;">
-                            <div style="width:50px;height:50px;flex:0 0 50px;background:var(--light-grey);"></div>
-                            <p>--light-grey: #f3f3f7;</p>
-                        </div>
-                    </div>
-                </div>
-		
-				<div>
-					<h1>H1: 40px -> 25px</h1>
-					<h2>H2: 24px -> 20px</h2>
-					<h3>H3: 25px -> 16px</h3>
-					<h4>H4: 18px -> 14px</h4>
-					<h5>H5: 18px -> 11px</h5>
-					<h6>H6: 16px -> 16px ?</h6>
+			<div class="container">
+				<p>Шрифт:</p>
+				<b>Manrope</b>
+				<br /><br />
+
+				<div style="display: flex;flex-direction: row;flex-wrap: wrap;gap: 20px;">
+					<div style="display: flex;flex-direction: column;gap: 10px;">
+						<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width:100px;height:100px;flex:0 0 100px;background:var(--blue);border-radius: 100%;">
+							<p class="text-white small my-0" style="text-align: center;">--blue: #5097D6;</p>
+						</div>
+					</div>
+					<div style="display: flex;flex-direction: column;gap: 10px;">
+						<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width:100px;height:100px;flex:0 0 100px;background:var(--dark-blue);border-radius: 100%;">
+							<p class="text-white small my-0" style="text-align: center;">--dark-blue: #2E3860;</p>
+						</div>
+					</div>
+					<div style="display: flex;flex-direction: column;gap: 10px;">
+						<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width:100px;height:100px;flex:0 0 100px;background:var(--dark);border-radius: 100%;">
+							<p class="text-white small my-0" style="text-align: center;">--dark: #262626;</p>
+						</div>
+					</div>
+					<div style="display: flex;flex-direction: column;gap: 10px;">
+						<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width:100px;height:100px;flex:0 0 100px;background:var(--grey);border-radius: 100%;">
+							<p class="text-white small my-0" style="text-align: center;">--grey: #959595;</p>
+						</div>
+					</div>
+					<div style="display: flex;flex-direction: column;gap: 10px;">
+						<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width:100px;height:100px;flex:0 0 100px;background:var(--light-grey); border-radius: 100%;">
+							<p class="small my-0" style="text-align: center;">--light-grey: #ECEFF7;</p>
+						</div>
+					</div>
 				</div>
-		
+
+				<br />
+
 				<div>
-					<b>Жирный текст</b>
-					<br />
-					<strong>Strong текст</strong>
-					<br />
-					<small>Small текст без класса: 14px</small>
-					<br />
-					<p>Параграф без класса: 18px -> 14px</p>
-					<p class="small">Параграф .small: 15px -> 14px</p>
+					<h1>H1: 50px → 28px</h1>
+					<h2>H2: 38px → 28px</h2>
+					<h3>H3: 28px → 20px</h3>
+					<h4>H4: 23px → 16px</h4>
+					<h5>H5: 16px → 14px</h5>
+					<h6>H6: 14px → ?</h6>
 				</div>
-		
-				<div style="display: flex; flex-direction: column; gap: 4px;">
-					<span>Размер шрифта ссылок: 18px -> 14px</span>
+				<br />
+
+				<div>
+					<b>Жирный текст</b> / <strong>Strong текст</strong>
+					<br />
+					<small>Small текст без класса: 14px -> 12px</small>
+					<br />
+					<p>Параграф без класса: 16px -> 14px</p>
+					<p class="small">Параграф .small: 14px -> 12px</p>
+				</div>
+
+				<br />
+
+				<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
+					<span>Размер шрифта ссылок: 16px -> 14px</span>
 					<a href="#">Ссылка без класса</a>
 					<a href="#" class="underlined">Ссылка с классом .underlined</a>
+					<a href="#" class="effect">Ссылка с классом .effect</a>
 					<a href="tel:+7 (473) 211-06-36" target="_blank" class="contact-block" title="Позвонить по номеру">
 						<i class="icon-phone"></i>
 						<span>+7 (473) 211-06-36</span>
 					</a>
 				</div>
-		
-                <div>
-                    <p>Списки макрированный/нумерованный:</p>
-                    <div style="display: flex;">
-                        <ul style="margin: 0;">
-                            <li>ul список 1</li>
-                            <li>ul список 2</li>
-                            <li>ul список 3</li>
-                        </ul>
-                        <ol style="margin: 0;">
-                            <li>ol список 1</li>
-                            <li>ol список 2</li>
-                            <li>ol список 3</li>
-                        </ol>
-                    </div>
-                </div>
-		
+
+				<br />
+
+				<p>Списки макрированный/нумерованный:</p>
+				<div style="display: flex;">
+					<ul style="margin: 0;">
+						<li>ul список 1</li>
+						<li>ul список 2</li>
+						<li>ul список 3</li>
+					</ul>
+					<ol style="margin: 0;">
+						<li>ol список 1</li>
+						<li>ol список 2</li>
+						<li>ol список 3</li>
+					</ol>
+				</div>
+				<br />
+
 				<div>
-					<p>Простой инпут без класса: (Отступ: 14px 20px; Шрифт: 16px -> 14px;)</p>
-					<input type="text" value="" placeholder="Введите текст..." />
-		
-					<br /><br />
-
-					<p>Простая текстэриа без класса: (Отступ: 14px 20px; Шрифт: 16px -> 14px; 3 строки)</p>
-					<textarea type="text" class="textarea" name="comment" rows="3" placeholder="Комментарий"></textarea>
-
-					<br /><br />
-		
-					<p>Инпут с поиском:</p>
-					<form action="?" class="header-search">
-						<input type="text" class="input input__search" value="" placeholder="Введите название или код товара" />
-						<button type="submit" class="btn-icon">
-							<i class="icon-search"></i>
-						</button>
-					</form>
-		
-					<br />
-					<p>Счетчики товаров:</p>
-					<div class="counter">
-						<button type="button" class="btn-outline-blue counter-minus">
-							<i class="icon-minus"></i>
-						</button>
-						<input type="number" id="counter-1" value="1" min="1" max="9999" disabled="" />
-						<button type="button" class="btn-outline-blue counter-plus">
-							<i class="icon-plus"></i>
-						</button>
+					<p>Простой инпут без класса: (Отступ: 16px 25px → 14px 16px; Шрифт: 14px → 12px;)</p>
+					<div style="padding: 10px; border-radius: 10px; background-color: var(--dark-blue);">
+						<input type="text" value="" placeholder="Введите текст..." />
+						<input type="text" class="input-dark" value="" placeholder="Темная сторона..." />
 					</div>
+
+					<br /><br />
+
+					<p>Простая текстэриа без класса: (Отступ: 16px 25px → 14px 16px; Шрифт: 14px → 12px; 3 строки)</p>
+					<div style="padding: 10px; border-radius: 10px; background-color: var(--dark-blue);">
+						<textarea type="text" name="comment" rows="3" placeholder="Комментарий"></textarea>
+						<textarea type="text" class="input-dark" name="comment" rows="3" placeholder="Темная сторона"></textarea>
+					</div>
+
+					<br />
+					<br />
+
+					<p>Чекбоксы и радио:</p>
+					<p class="radio">
+						<input type="radio" id="radio-1" name="radio">
+						<label for="radio-1">
+							Радио
+						</label>
+					</p>
+					<p class="radio">
+						<input type="radio" id="radio-2" name="radio">
+						<label for="radio-2">
+							Радио
+						</label>
+					</p>
+					<p class="radio">
+						<input type="radio" id="radio-3" name="radio">
+						<label for="radio-3">
+							Радио
+						</label>
+					</p>
+					<p class="radio">
+						<input type="radio" id="radio-4" name="radio">
+						<label for="radio-4">
+							Радио
+						</label>
+					</p>
+
+					<p class="checkbox">
+						<input type="checkbox" id="checkbox">
+						<label for="checkbox">
+							Чекбокс
+						</label>
+					</p>
+
+					<p class="checkbox">
+						<input type="checkbox" id="checkbox-2">
+						<label for="checkbox-2">
+							Чекбокс 2
+						</label>
+					</p>
+
+					<p class="checkbox">
+						<input type="checkbox" id="checkbox-3">
+						<label for="checkbox-3">
+							Чекбокс 3
+						</label>
+					</p>
+
+					<p class="radio radio-variant">
+						<input type="radio" id="radio-var-1" name="radio-var">
+						<label for="radio-var-1">
+							40-80 кв. м.
+						</label>
+					</p>
+					<p class="radio radio-variant">
+						<input type="radio" id="radio-var-2" name="radio-var">
+						<label for="radio-var-2">
+							80-120 кв. м.
+						</label>
+					</p>
+					<p class="radio radio-variant">
+						<input type="radio" id="radio-var-3" name="radio-var">
+						<label for="radio-var-3">
+							120-200 кв. м.
+						</label>
+					</p>
+					<p class="radio radio-variant">
+						<input type="radio" id="radio-var-4" name="radio-var">
+						<label for="radio-var-4">
+							более 200 кв. м.
+						</label>
+					</p>
+					<p class="radio radio-variant">
+						<input type="radio" id="radio-var-5" name="radio-var">
+						<label for="radio-var-5">
+							рассмотрю все варианты
+						</label>
+					</p>
 				</div>
 
-		
+				<br />
+
 				<div>
-					<p>Кнопка без класса (размер шрифта: 18px -> 16px):</p>
+					<p>Кнопка без класса (размер шрифта: 16px -> 14px):</p>
 					<button>
 						Кнопка
 					</button>
 
 					<br />
 					<br />
-		
-					<p>Кнопка с классом:</p>
+
+					<p>Кнопка с классом .btn-icon:</p>
 					<button class="btn-icon">
-						<i class="icon-menu"></i>
+						<i class="icon-catalog"></i>
 						<span>Каталог</span>
 					</button>
 
 					<br />
 
-					<p>Кнопка с классом btn-orange:</p>
-					<button class="btn btn-orange">
+					<p>Белая кнопка:</p>
+					<button class="btn-white">
 						Хочу КП
-					</button>
-
-					<br />
-					<br />
-					
-					<p>Синяя кнопка с классом btn-effect:</p>
-					<button class="btn btn-blue btn-effect">
-						Эффект на кнопке
-					</button>
-
-					<br />
-					<br />
-					
-					<p>Оранжевая кнопка с классом btn-effect:</p>
-					<button class="btn btn-orange btn-effect">
-						Эффект на кнопке
 					</button>
 
 					<br />
@@ -226,18 +250,20 @@
 					<button type="button" disabled>
 						Эффект на кнопке
 					</button>
-					
+
 					<br />
 					<br />
 
 					<div class="social-block">
-						<a href="javascript://" target="_blank" title="Связаться с нами в Телеграмм" class="social-link">
+						<a href="javascript://" target="_blank" title="Связаться с нами в Телеграмм"
+							class="social-link">
 							<i class="icon-tg"></i>
 						</a>
 						<a href="javascript://" target="_blank" title="Связаться с нами в WhatsApp" class="social-link">
 							<i class="icon-whatsapp"></i>
 						</a>
-						<a href="javascript://" target="_blank" title="Связаться с нами в ВКонтакте" class="social-link">
+						<a href="javascript://" target="_blank" title="Связаться с нами в ВКонтакте"
+							class="social-link">
 							<i class="icon-vk"></i>
 						</a>
 					</div>
@@ -259,7 +285,9 @@
 						</a>
 					</div>
 				</div>
-		
+
+				<br />
+
 				<div>
 					<i class="icon icon-arrow-left"></i>
 					<i class="icon icon-arrow-right"></i>
@@ -287,6 +315,7 @@
 					<i class="icon icon-vk"></i>
 					<i class="icon icon-whatsapp"></i>
 				</div>
+				<br />
 
 				<div>
 					<div class="slider">
@@ -297,6 +326,7 @@
 						</div>
 					</div>
 				</div>
+				<br />
 
 				<div>
 					<div class="slider">
@@ -305,7 +335,8 @@
 						</div>
 					</div>
 				</div>
-		
+				<br />
+
 				<div>
 					<div class="pagination-numbers">
 						<a href="#" class="deactive">

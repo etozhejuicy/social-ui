@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
-	<meta name="description"
-		content="UI-Kit like a Social Network for all of users. It's free, that is true." />
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
+	<meta name="description" content="UI-Kit like a Social Network for all of users. It's free, that is true." />
 	<meta name="format-detection" content="telephone=no">
 
 	<!-- favicon -->
@@ -31,18 +32,19 @@
 	<!-- primary styles -->
 	<link rel="stylesheet" href="./dist/css/app.min.css" />
 </head>
+
 <body>
-    <header class="header">
+	<header class="header">
 		<div class="header-top">
 			<div class="container">
-				<a href="./" class="header-logo h1" title="Social-UI - легкий и технологичный CSS-фреймворк">
-					Social UI
+				<a href="./" class="header-logo h2 fw-600" title="Social-UI - легкий и технологичный CSS-фреймворк">
+					Social <span class="text-blue">UI</span>
 				</a>
 
 				<button aria-label="catalog" class="btn-icon" data-catalog="">
-					<i class="icon-catalog"></i>
+					<i class="icon-widget"></i>
 					<i class="icon-cross"></i>
-					<span>Меню</span>
+					<span>Разделы</span>
 				</button>
 
 				<!-- Поиск в шапке -->
@@ -62,18 +64,6 @@
 				<div class="menu">
 					<div class="menu-nav">
 						<a href="#">
-							<i class="icon-temperature"></i>
-							<span>Пункт 1</span>
-						</a>
-						<a href="#">
-							<i class="icon-service"></i>
-							<span>Пункт 2</span>
-						</a>
-						<a href="#">
-							<i class="icon-portfolio"></i>
-							<span>Пункт 3</span>
-						</a>
-						<a href="#">
 							<i class="icon-about"></i>
 							<span>Пункт 4</span>
 						</a>
@@ -85,23 +75,27 @@
 
 					<div class="menu-bottom">
 
-						<a href="https://yandex.ru/maps/193/voronezh/?from=mapframe&ll=39.185731%2C51.679399&mode=usermaps&source=mapframe&um=constructor%3A46c9edf9d0e07421f02741b87c01c723acd13a193f9ff82b0d1f4331fab902e4&utm_source=mapframe&z=13" target="_blank" class="contact-block" title="Посмотреть на карте">
+						<a href="https://yandex.ru/maps/193/voronezh/?from=mapframe&ll=39.185731%2C51.679399&mode=usermaps&source=mapframe&um=constructor%3A46c9edf9d0e07421f02741b87c01c723acd13a193f9ff82b0d1f4331fab902e4&utm_source=mapframe&z=13"
+							target="_blank" class="contact-block" title="Посмотреть на карте">
 							<address>
 								г. Воронеж, Московский пр-т, д. 4
 							</address>
 						</a>
-					
-						<a href="tel:+7 (473) 296 95 52" target="_blank" class="contact-block" title="Позвонить по номеру">
+
+						<a href="tel:+7 (473) 296 95 52" target="_blank" class="contact-block"
+							title="Позвонить по номеру">
 							<i class="icon-phone"></i>
 							<span>+7 (473) 296 95 52</span>
 						</a>
 
-						<a href="tel:+7 (473) 235 51 58" target="_blank" class="contact-block" title="Позвонить по номеру">
+						<a href="tel:+7 (473) 235 51 58" target="_blank" class="contact-block"
+							title="Позвонить по номеру">
 							<i class="icon-phone"></i>
 							<span>+7 (473) 235 51 58</span>
 						</a>
 
-						<a href="mailto:lineholod@yandex.ru" target="_blank" class="contact-block" title="Написать на почту">
+						<a href="mailto:lineholod@yandex.ru" target="_blank" class="contact-block"
+							title="Написать на почту">
 							<i class="icon-mail"></i>
 							<span>
 								lineholod@yandex.ru
@@ -120,7 +114,7 @@
 		<!-- Результаты поиска -->
 		<div></div>
 	</div>
-	
+
 	<!-- catalog menu -->
 	<div class="catalog-menu">
 		<!-- Обертка -->
@@ -130,20 +124,20 @@
 				<a class="catalog-menu--chapter" href="javascript://" data-catalog-chapter="1">
 					Чиллеры охлаждения воды
 				</a>
-	
+
 				<a class="catalog-menu--chapter" href="javascript://" data-catalog-chapter="2">
 					Промышленные холодильные камеры
 				</a>
-	
+
 				<a class="catalog-menu--chapter" href="javascript://" data-catalog-chapter="3">
 					Холодильные моноблоки Polair
 				</a>
-	
+
 				<a class="catalog-menu--chapter" href="javascript://" data-catalog-chapter="4">
 					Холодильные моноблоки Bitzer / Copeland / Maneurop
 				</a>
 			</nav>
-	
+
 			<!-- Категории -->
 			<div class="catalog-menu--categories">
 				<a href="javascript://" class="link-icon underlined small" id="backCatalogChapters">
@@ -191,8 +185,8 @@
 						</ul>
 					</li>
 				</ul>
-	
-	
+
+
 				<!-- Ссылка на родительский подраздел -->
 				<ul class="catalog-menu--category catalog-menu--parent" data-chapter-id="2">
 					<li>
@@ -265,7 +259,7 @@
 					</li>
 				</ul>
 
-	
+
 				<!-- Ссылка на родительский подраздел -->
 				<ul class="catalog-menu--category catalog-menu--parent" data-chapter-id="3">
 					<li>
@@ -278,7 +272,7 @@
 						<!-- Если списка с ссылками на категории подраздела нет, то и списка нет :) -->
 					</li>
 				</ul>
-	
+
 				<!-- Ссылка на родительский подраздел -->
 				<ul class="catalog-menu--category catalog-menu--parent" data-chapter-id="4">
 					<li>
@@ -349,18 +343,21 @@
 						Заинтересовал наш продукт или остались вопросы?
 					</h4>
 					<p>
-						Оставьте свои контактные данные и мы свяжемся с вами. Быстро отвечаем на вопросы, информируем о каждом этапе
+						Оставьте свои контактные данные и мы свяжемся с вами. Быстро отвечаем на вопросы, информируем
+						о каждом этапе
 						сотрудничества, решаем все сложные задачи. Остаемся на связи даже после успешной сделки.
 					</p>
 				</div>
 				<form class="form-feedback">
 					<div class="form-feedback--inputs">
-						<input type="text" class="input input-dark" value="" name="modalFeedbackName" placeholder="Имя" />
-					
-						<input type="text" class="input input-dark" value="" name="modalFeedbackPhone" placeholder="+7   ___-___-__-__"
-							data-input-phone="" required />
-					
-						<input type="email" class="input input-dark" value="" name="modalFeedbackEmail" placeholder="E-Mail" />
+						<input type="text" class="input input-dark" value="" name="modalFeedbackName"
+							placeholder="Имя" />
+
+						<input type="text" class="input input-dark" value="" name="modalFeedbackPhone"
+							placeholder="+7   ___-___-__-__" data-input-phone="" required />
+
+						<input type="email" class="input input-dark" value="" name="modalFeedbackEmail"
+							placeholder="E-Mail" />
 					</div>
 
 					<div class="form-feedback--agree">
@@ -373,13 +370,13 @@
 							</label>
 						</p>
 					</div>
-					
+
 					<button type="submit">Оставить заявку</button>
 				</form>
 			</div>
 			<div class="footer-primary">
-				<a href="./" class="footer-logo h1" title="Social-UI - легкий и технологичный CSS-фреймворк">
-					Social UI
+				<a href="./" class="footer-logo  h2 fw-600" title="Social-UI - легкий и технологичный CSS-фреймворк">
+					Social <span class="text-blue">UI</span>
 				</a>
 
 				<div class="footer-navigation">
@@ -419,27 +416,29 @@
 				</p>
 				<form class="form-appointment" action="?">
 					<div class="form-appointment--inputs">
-						<input type="text" class="input input-dark" value="" name="modalAppointmentName" placeholder="Имя" />
-	
+						<input type="text" class="input input-dark" value="" name="modalAppointmentName"
+							placeholder="Имя" />
+
 						<input type="text" class="input input-dark" value="" name="modalAppointmentPhone"
 							placeholder="+7   ___-___-__-__" data-input-phone="" required />
 
-						<input type="email" class="input input-dark" value="" name="modalAppointmentEmail" placeholder="E-Mail" />
+						<input type="email" class="input input-dark" value="" name="modalAppointmentEmail"
+							placeholder="E-Mail" />
 					</div>
-	
+
 					<button type="submit">Получить консультацию</button>
-	
+
 					<div class="form-appointment--agree">
 						<p class="checkbox small text-muted">
-								<input type="checkbox" id="usloviya" />
-								<label for="usloviya">
-									Я согласен на обработку персональных данных в соответствии с <a href="#" target="_blank"
-										class="text-muted">Условиями политики
-										обработки персональных данных</a>
-								</label>
+							<input type="checkbox" id="usloviya" />
+							<label for="usloviya">
+								Я согласен на обработку персональных данных в соответствии с <a href="#" target="_blank"
+									class="text-muted">Условиями политики
+									обработки персональных данных</a>
+							</label>
 						</p>
 					</div>
-	
+
 				</form>
 			</div>
 		</div>
@@ -456,7 +455,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script type="module" src="./src/js/vendor/scroller.js"></script>
 	<script src="./src/js/vendor/jquery-3.7.1.min.js"></script>
 	<script src="./src/js/vendor/glightbox.min.js"></script>
@@ -465,4 +464,5 @@
 	<script src="./src/js/vendor/jquery.nice-select.min.js"></script>
 	<script src="./src/js/app.js"></script>
 </body>
+
 </html>

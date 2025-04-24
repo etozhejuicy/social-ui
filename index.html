@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
-	<meta name="description" content="UI-Kit like a Social Network for all of users. It's free, that is true." />
+	<meta name="description" content="Social-UI - Набор готовых HTML-шаблонов под любые цели на выбор" />
 	<meta name="format-detection" content="telephone=no">
 
 	<!-- favicon -->
@@ -122,19 +122,19 @@
 			<!-- Разделы -->
 			<nav class="catalog-menu--chapters">
 				<a class="catalog-menu--chapter" href="javascript://" data-catalog-chapter="1">
-					Чиллеры охлаждения воды
+					Компоненты
 				</a>
 
 				<a class="catalog-menu--chapter" href="javascript://" data-catalog-chapter="2">
-					Промышленные холодильные камеры
+					Семантическая верстка
 				</a>
 
 				<a class="catalog-menu--chapter" href="javascript://" data-catalog-chapter="3">
-					Холодильные моноблоки Polair
+					Готовые шаблоны
 				</a>
 
 				<a class="catalog-menu--chapter" href="javascript://" data-catalog-chapter="4">
-					Холодильные моноблоки Bitzer / Copeland / Maneurop
+					Другие решения
 				</a>
 			</nav>
 
@@ -151,7 +151,7 @@
 							<div class="image">
 								<img src="./assets/images/examples/category/1.jpg" alt="">
 							</div>
-							Чиллеры с конденсатором воздушного охлаждения
+							Кнопки
 						</a>
 						<!-- Если списка с ссылками на категории подраздела нет, то и списка нет :) -->
 					</li>
@@ -160,7 +160,7 @@
 							<div class="image">
 								<img src="./assets/images/examples/category/2.jpg" alt="">
 							</div>
-							Чиллеры с конденсатором воздушного охлаждения
+							Popup-окна
 						</a>
 					</li>
 					<li>
@@ -168,18 +168,18 @@
 							<div class="image">
 								<img src="./assets/images/examples/category/3.jpg" alt="">
 							</div>
-							Оборудование для получения ледяной воды
+							Карточки
 						</a>
 						<!-- Список с ссылками на категории подраздела -->
 						<ul>
 							<li>
 								<a href="#2" class="fw-400">
-									Установки охлаждения воды с льдоаккумуляторами
+									Карточки товара
 								</a>
 							</li>
 							<li>
 								<a href="#2" class="fw-400">
-									Льдоаккумуляторы
+									Карточки новостей
 								</a>
 							</li>
 						</ul>
@@ -319,14 +319,57 @@
 		</div>
 	</div>
 
+	<!-- main-section -->
+	<section class="section-main py-0">
+		<div class="slider-block slider-block-once slider-block-main">
+			<div class="slider" data-slider-init="true" id="slider_1" data-autoplay="true" data-infinite="true"
+				data-speed="300">
+				<div class="slides">
+					<div class="slide">
+						<picture>
+							<img src="./assets/images/slider/1/1.webp"
+								alt="Торговое и промышленное холодильное оборудование" />
+						</picture>
+					</div>
+					<div class="slide">
+						<picture>
+							<img src="./assets/images/slider/1/2.webp"
+								alt="Торговое и промышленное холодильное оборудование" />
+						</picture>
+					</div>
+					<div class="slide">
+						<picture>
+							<img src="./assets/images/slider/1/3.webp"
+								alt="Торговое и промышленное холодильное оборудование" />
+						</picture>
+					</div>
+				</div>
+				<div class="slider-container">
+					<div class="slider-card" data-slider-card="1">
+						<span class="h2" data-card-title="">
+							Семантические блоки
+						</span>
+						<div data-card-description="">
+							Возможность быстрой интеграции
+						</div>
+						<a href="#appointment" class="btn" data-card-link="">
+							Запросить
+						</a>
+					</div>
+					<div class="pagination"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<main>
 		<section>
 			<div class="container">
 				<h1>
-					CSS-фреймворк под любые задачи
+					Готовые HTML-шаблоны под любые задачи
 				</h1>
 				<h2>
-					Технологичный, мощный и простой
+					Просто возьми и забери свой шаблон  на выбор
 				</h2>
 				<h3>
 					Возможно интегрировать в любой статичный сайт, лендинг или конструктор
@@ -455,6 +498,36 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- js part -->
+	<script>
+		// MainCard
+		const mainCard = document.querySelector('[data-slider-card="1"]');
+		const mainCardData = [{
+			title: 'Семантические блоки',
+			description: `Возможность быстрой интеграции`,
+			link: '#appointment',
+			textLink: 'Запросить',
+		},
+		{
+			title: 'Конкурентные преимущества',
+			description: `<ul>
+				<li>Большой выбор компонентов</li>
+				<li>Большинство решений под ключ</li>
+				<li>Семантическая верстка</li>
+				<li>База знаний</li>
+			</ul>`,
+			link: '#2',
+			textLink: 'В компоненты',
+		},
+		{
+			title: 'Привлечение клиентов и увеличение объема продаж',
+			description: `Достижение этих целей зависит от наличия качественного и надежного холодильного промышленного оборудования`,
+			link: '#3',
+			textLink: 'Заявка на звонок',
+		},
+		];
+	</script>
 
 	<script type="module" src="./src/js/vendor/scroller.js"></script>
 	<script src="./src/js/vendor/jquery-3.7.1.min.js"></script>

@@ -7,7 +7,7 @@ const lightbox = GLightbox({
 });
 
 // mobile-menu
-let isMobile = window.innerWidth <= 992;
+let isMobile = window.innerWidth < 992;
 const mainMenu = document.querySelector('.menu');
 const menuElems = document.querySelectorAll('[data-menu]');
 const menuItems = document.querySelectorAll('[data-menu-close]');
@@ -33,11 +33,15 @@ const searchResult = document.querySelector('.search-result');
 const searchResultTyped = searchResult.querySelector('.search-result-typed');
 
 function updateIsMobile() {
-  isMobile = window.innerWidth <= 992;
+  isMobile = window.innerWidth < 992;
 }
 
-window.addEventListener('resize', updateIsMobile);
-window.addEventListener('DOMContentLoaded', updateIsMobile);
+updateIsMobile();
+
+window.addEventListener('resize', () => {
+  updateIsMobile();
+});
+
 
 window.addEventListener('scroll', setFixedHeader);
 window.addEventListener('resize', setFixedHeader);
@@ -105,8 +109,9 @@ function openMenu(menuElem) {
 }
 
 function menuPosition() {
+  console.error(isMobile);
   const headerRect = header.getBoundingClientRect();
-  mainMenu.style.top = `${headerRect.height}px`;
+  isMobile ? mainMenu.style.paddingTop = `${headerRect.height}px` : mainMenu.style.paddingTop = 0;
 }
 
 function closeMenu() {
@@ -249,7 +254,14 @@ function closeCatalogCategories() {
 function positionCatalogMenu(button) {
     const buttonRect = button.getBoundingClientRect();
     const headerRect = header.getBoundingClientRect();
-    catalogMenu.style.top = !isMobile ? `${headerRect.bottom + 16}px` : `${headerRect.bottom}px`;
+    if(!isMobile) {
+      catalogMenu.style.top = `${headerRect.bottom + 16}px`;
+      catalogMenu.style.paddingTop = '0px';
+    } else {
+      catalogMenu.style.top = '0px';
+      catalogMenu.style.paddingTop = `${headerRect.bottom}px`;
+    }
+    // !isMobile ? catalogMenu.style.top : catalogMenu.style.paddingTop = !isMobile ? `${headerRect.bottom + 16}px` : `${headerRect.bottom}px`;
     catalogMenu.style.left = !isMobile ? `${buttonRect.left}px` : `${headerRect.left}px`;
 }
 
@@ -443,6 +455,10 @@ window.addEventListener('resize', searchResultPosition);
 window.addEventListener('scroll', searchResultPosition);
 window.addEventListener(
   'scroll',
+  positionCatalogMenu(document.querySelector('[data-catalog]'))
+);
+window.addEventListener(
+  'resize',
   positionCatalogMenu(document.querySelector('[data-catalog]'))
 );
 

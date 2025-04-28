@@ -345,31 +345,32 @@ function searchResultShow() {
 async function searchInputType() {
   const query = searchInput.value.trim();
 
-  if (query.length > 3) {
+  if (query.length > 2) {
     const results = [
       {
-        name: 'Термотрансферный принтер Godex G500/G530',
+        name: 'Компоненты',
         image: './assets/images/example/search/item.jpg',
-        price: 'от 29 130 ₽',
-        link: '#',
+        link: '/components',
       },
       {
-        name: 'Термотрансферный принтер Godex G100/G130',
+        name: 'Слайдер',
         image: './assets/images/example/search/item.jpg',
-        price: 'от 25 000 ₽',
-        link: '#',
+        link: '/components/slider',
       },
       {
-        name: 'Термотрансферный принтер Godex G1000',
+        name: 'Popup-окна',
         image: './assets/images/example/search/item.jpg',
-        price: 'от 30 000 ₽',
-        link: '#',
+        link: '/components/slider',
       },
       {
-        name: 'Термотрансферный принтер Godex G5/G50',
+        name: 'Карточки',
         image: './assets/images/example/search/item.jpg',
-        price: 'от 27 000 ₽',
-        link: '#',
+        link: '/components/cards',
+      },
+      {
+        name: 'Семантическая верстка',
+        image: './assets/images/example/search/item.jpg',
+        link: '/semantic',
       },
     ];
 
@@ -394,16 +395,16 @@ async function searchInputType() {
       resultsList.appendChild(p);
     }
 
-    if (results.length > 0) {
-      results.forEach((item) => {
-        resultsList.appendChild(createSearchItem(item));
-      });
-    } else {
-      const p = document.createElement('p');
-      p.classList.add('small');
-      p.textContent = 'Нет результатов';
-      resultsList.appendChild(p);
-    }
+    // if (results.length > 0) {
+    //   results.forEach((item) => {
+    //     resultsList.appendChild(createSearchItem(item));
+    //   });
+    // } else {
+    //   const p = document.createElement('p');
+    //   p.classList.add('small');
+    //   p.textContent = 'Нет результатов';
+    //   resultsList.appendChild(p);
+    // }
 
     searchResultShow();
   } else {
@@ -417,12 +418,11 @@ function createSearchItem(item) {
   a.setAttribute('href', item.link);
   a.classList.add('search-item');
   a.innerHTML = `
-    <img src="${item.image}" alt="${item.model}" />
+    ${item.image ? `<img src="${item.image}" alt="${item.name}" />` : ``}
     <div class="search-item__content">
-      <span class="search-item__name">${item.model}</span>
-      <div class="search-item__variant">${item.variant}</div>
+      ${item.name ? `<span class="search-item__name">${item.name}</span>` : ``}
     </div>
-    <span class="search-item__price">${item.price}</span>
+    <span class="search-item__price"><i class="icon-right"></i></span>
   `;
   return a;
 }

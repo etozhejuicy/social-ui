@@ -33,10 +33,10 @@ body {
   margin: 0;
   padding: 88px 0 0 0;
   font-family: 'SF UI Text';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
   color: var(--dark);
   background-color: #ffffff;
   overflow-x: clip;
@@ -76,16 +76,17 @@ main {
   &-main {
     padding: 30px 4px 34px 20px;
 
-    & > b {
+    &>b {
       line-height: 1.2;
       margin-bottom: 20px;
     }
 
-    & > p {
+    &>p {
       margin-bottom: 16px;
     }
 
-    & > * {
+    &>* {
+
       &.btn,
       &:is(button) {
         width: fit-content;

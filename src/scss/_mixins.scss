@@ -1,167 +1,293 @@
 @mixin input {
-    display: inline;
-    padding: 16px 25px;
-    font-family: 'Manrope';
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--dark);
-    border-radius: 10px;
-    border: 1px solid var(--grey);
-    background-color: #ffffff;
-    outline: none;
-    transition: 0.25s ease-in-out;
+  display: inline;
+  padding: 16px 25px;
+  font-family: 'Manrope';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--dark);
+  border-radius: 10px;
+  border: 1px solid var(--grey);
+  background-color: #ffffff;
+  outline: none;
+  transition: 0.25s ease-in-out;
 
-    @media (max-width: 720px) {
-        font-size: 12px;
-        padding: 14px 16px;
-    }
+  @media (max-width: 720px) {
+    font-size: 12px;
+    padding: 14px 16px;
+  }
+
+  &::placeholder {
+    color: var(--grey);
+    transition: 0.25s ease-in-out;
+  }
+
+  &:focus {
+    border-color: var(--blue);
 
     &::placeholder {
-        color: var(--grey);
-        transition: 0.25s ease-in-out;
+      color: transparent;
+      transition: 0.25s ease-in-out;
     }
-
-    &:focus {
-        border-color: var(--blue);
-
-        &::placeholder {
-            color: transparent;
-            transition: 0.25s ease-in-out;
-        }
-    }
+  }
 }
 
 @mixin input-dark {
-    background-color: #434e7a;
+  background-color: #434e7a;
+  color: #ffffff;
+  border-color: #434e7a;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.25s ease-in-out;
+  }
+
+  &:focus {
     color: #ffffff;
-    border-color: #434e7a;
+    border-color: var(--blue);
 
     &::placeholder {
-        color: rgba(255, 255, 255, 0.6);
-        transition: 0.25s ease-in-out;
+      color: transparent;
+      transition: 0.25s ease-in-out;
     }
-
-    &:focus {
-        color: #ffffff;
-        border-color: var(--blue);
-
-        &::placeholder {
-            color: transparent;
-            transition: 0.25s ease-in-out;
-        }
-    }
+  }
 }
 
 @mixin input-filter {
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: 0.25s ease-in-out;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.25s ease-in-out;
+
+  @media (max-width: 720px) {
+    font-size: 12px;
+  }
 }
 
 @mixin outline-blue-input {
-    background-color: transparent;
-    border: 1px solid var(--blue);
-    color: var(--blue);
+  background-color: transparent;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  box-shadow: none;
+}
+
+@mixin button {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 14px 20px;
+  font-family: 'Manrope';
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  text-transform: none;
+  border-radius: 10px;
+  box-shadow: none;
+  border: 1px solid var(--blue);
+  background-color: var(--blue);
+  transition: 0.25s ease-in-out;
+
+  @media (max-width: 991px) {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  &:hover,
+  &.hover {
+    background-color: var(--blue);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: inset -4px -4px 10px rgba(46, 56, 96, 0.5),
+      inset 4px 4px 10px rgba(255, 255, 255, 0.4);
+  }
+
+  &:focus:active,
+  &.focus,
+  &.active {
+    border-color: transparent;
+    box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.4),
+      inset 4px 4px 10px rgba(46, 56, 96, 0.5);
+  }
+
+  &.disabled,
+  &:disabled {
+    background-color: var(--light-grey);
+    color: var(--grey);
+    border-color: var(--light-grey);
     box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  & > i {
+    transition: 0.25s ease-in-out;
+  }
 }
 
 @mixin button-outline-blue {
-    background-color: transparent;
-    color: var(--blue);
-    border: 1px solid var(--blue);
+  background-color: transparent;
+  color: var(--blue);
+  border: 1px solid var(--blue);
 
-    &:hover,
-    &.hover {
-        background-color: var(--blue);
-        border-color: transparent;
-        color: #ffffff;
-        box-shadow: none;
-    }
+  &:hover,
+  &.hover {
+    background-color: var(--blue);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: none;
+  }
 
-    &:focus:active,
-    &.focus,
-    &.active {
-        border-color: transparent;
-        box-shadow: none;
-    }
+  &:focus:active,
+  &.focus,
+  &.active {
+    border-color: transparent;
+    box-shadow: none;
+  }
 }
 
 @mixin button-light {
-    background-color: #ffffff;
-    border-color: #ffffff;
-    color: var(--dark);
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: var(--dark);
+  box-shadow: none;
+
+  & > i {
+    color: var(--blue);
+  }
+
+  &:hover,
+  &.hover {
+    background-color: var(--blue);
+    border-color: var(--blue);
+    color: var(--light-grey);
     box-shadow: none;
 
-    &>i {
-        color: var(--blue);
+    & > i {
+      color: var(--light-grey);
     }
+  }
 
-    &:hover,
-    &.hover {
-        background-color: var(--blue);
-        border-color: var(--blue);
-        color: var(--light-grey);
-        box-shadow: none;
-
-        &>i {
-            color: var(--light-grey);
-        }
-    }
-
-    &:focus:active,
-    &.focus,
-    &.active {
-        border-color: transparent;
-        box-shadow: none;
-    }
+  &:focus:active,
+  &.focus,
+  &.active {
+    border-color: transparent;
+    box-shadow: none;
+  }
 }
 
 @mixin button-min {
-    font-size: 14px;
+  font-size: 14px;
 
-    @media (max-width: 720px) {
-        font-size: 12px;
-    }
+  @media (max-width: 720px) {
+    font-size: 12px;
+  }
+}
+
+@mixin button-slim {
+  padding: 10px 14px;
 }
 
 @mixin tab-button {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 30px;
-    background-color: var(--light-grey);
-    text-decoration: none !important;
-    text-align: center;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.4;
-    color: var(--grey);
-    border: 1px solid var(--light-grey);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.25s ease-in-out;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 30px;
+  background-color: #ffffff;
+  text-decoration: none !important;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--dark);
+  border: 1px solid var(--light-grey);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
 
-    @media (max-width: 720px) {
-        padding: 14px 20px;
-        font-size: 12px;
+  @media (max-width: 720px) {
+    padding: 14px 20px;
+    font-size: 12px;
+  }
+
+  @media (max-width: 420px) {
+    padding: 14px 10px;
+  }
+
+  &:hover,
+  &.hover {
+    color: var(--dark);
+    border-color: var(--blue);
+  }
+
+  &.active {
+    background-color: #ffffff;
+    box-shadow: inset 0px 5px 0px 0px var(--blue);
+    color: var(--dark);
+    border-color: var(--light-grey);
+  }
+}
+
+@mixin activeSupplyCard {
+  background-color: var(--blue);
+
+  & > i {
+    color: #ffffff;
+  }
+
+  .card-supply--content {
+    & > span {
+      opacity: 0;
+      visibility: hidden;
     }
 
-    @media (max-width: 420px) {
-        padding: 14px 10px;
+    & > p {
+      opacity: 1;
+      visibility: visible;
     }
+  }
+}
 
-    &:hover,
-    &.hover {
-        color: var(--dark);
-    }
+@mixin headerButton {
+  display: flex;
+  width: fit-content;
+  height: auto;
+  flex: 0 0 fit-content;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--light-grey);
+  font-weight: 600;
+  color: var(--dark);
 
-    &.active {
-        background-color: #ffffff;
-        box-shadow: inset 0px 5px 0px 0px var(--blue);
-        color: var(--dark);
-    }
+  &:hover,
+  &.hover {
+    box-shadow: none;
+    color: var(--dark);
+    background-color: #ffffff;
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus:active,
+  &.focus,
+  &.active {
+    color: var(--dark);
+    background-color: #ffffff;
+    box-shadow: none;
+  }
+
+  @media (max-width: 720px) {
+    padding: 5px 0;
+  }
 }

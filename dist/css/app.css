@@ -5396,7 +5396,13 @@ main {
   height: 100%;
   min-height: unset;
   padding: 0;
+  border-radius: 12px;
   aspect-ratio: 1/1;
+}
+@media (max-width: 720px) {
+  .card-photo {
+    border-radius: 6px;
+  }
 }
 .card-photo > img {
   width: 100%;

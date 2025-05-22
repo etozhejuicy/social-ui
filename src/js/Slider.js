@@ -555,58 +555,6 @@ class Slider {
         this.currentIndex * slideWidth + this.currentIndex * this.gap;
 
       if (this.slides.parentElement.dataset.slideOnce === 'true') {
-        const maxDistance = slideWidth * 1.5;
-        this.distanceX = Math.max(
-          -maxDistance,
-          Math.min(this.distanceX, maxDistance)
-        );
-      }
-
-      this.slides.style.transform = `translateX(-${offset - this.distanceX}px)`;
-    } else {
-      const slideHeight =
-        (this.slides.getBoundingClientRect().height -
-          this.gap * (this.slidesToShow - 1)) /
-        this.slidesToShow;
-      const offset =
-        this.currentIndex * slideHeight + this.currentIndex * this.gap;
-
-      if (this.slides.parentElement.dataset.slideOnce === 'true') {
-        const maxDistance = slideHeight * 1.5;
-        this.distanceY = Math.max(
-          -maxDistance,
-          Math.min(this.distanceY, maxDistance)
-        );
-      }
-
-      this.slides.style.transform = `translateY(-${offset - this.distanceY}px)`;
-    }
-  }
-
-  handleMouseUp = (event) => {
-    if (!this.isMouseDown || !this.isSwipeEnabled) return;
-    this.handleEnd();
-    document.removeEventListener('mousemove', this.handleMouseMove);
-    document.removeEventListener('mouseup', this.handleMouseUp);
-  };
-
-  handleTouchMove = (event) => {
-    if (!this.isMouseDown || !this.isSwipeEnabled) return;
-
-    const endX = event.touches[0].clientX;
-    const endY = event.touches[0].clientY;
-    this.distanceX = endX - this.startX;
-    this.distanceY = endY - this.startY;
-
-    if (this.orientation === 'horizontal') {
-      const slideWidth =
-        (this.slides.getBoundingClientRect().width -
-          this.gap * (this.slidesToShow - 1)) /
-        this.slidesToShow;
-      const offset =
-        this.currentIndex * slideWidth + this.currentIndex * this.gap;
-
-      if (this.slides.parentElement.dataset.slideOnce === 'true') {
         const maxDistance = slideWidth * 0.25;
         this.distanceX = Math.max(
           -maxDistance,
@@ -616,7 +564,6 @@ class Slider {
 
       this.slides.style.transform = `translateX(-${offset - this.distanceX}px)`;
     } else {
-      // Вертикальная ориентация
       const slideHeight =
         (this.slides.getBoundingClientRect().height -
           this.gap * (this.slidesToShow - 1)) /
@@ -634,6 +581,13 @@ class Slider {
 
       this.slides.style.transform = `translateY(-${offset - this.distanceY}px)`;
     }
+  }
+
+  handleMouseUp = (event) => {
+    if (!this.isMouseDown || !this.isSwipeEnabled) return;
+    this.handleEnd();
+    document.removeEventListener('mousemove', this.handleMouseMove);
+    document.removeEventListener('mouseup', this.handleMouseUp);
   };
 
   handleTouchEnd = (event) => {
@@ -653,6 +607,7 @@ class Slider {
 
     // Если перемещение слишком маленькое - это клик, игнорируем
     if (!isHorizontalSwipe && !isVerticalSwipe) {
+      this.resetDragState();
       return;
     }
 
@@ -696,12 +651,36 @@ class Slider {
       newIndex = Math.max(0, Math.min(newIndex, maxIndex));
     }
 
+    // Сбрасываем состояние перемещения перед анимацией
+    this.resetDragState();
+
+    // Диспатчим кастомное событие о начале перемещения
+    this.slides.dispatchEvent(
+      new CustomEvent('sliderMoveStart', {
+        bubbles: true,
+        detail: { fromIndex: this.currentIndex, toIndex: newIndex },
+      })
+    );
+
     this.showSlide(newIndex);
+
+    // Диспатчим событие о завершении перемещения после анимации
+    setTimeout(() => {
+      this.slides.dispatchEvent(
+        new CustomEvent('sliderMoveEnd', {
+          bubbles: true,
+          detail: { currentIndex: this.currentIndex },
+        })
+      );
+    }, this.speed);
   }
 
   resetDragState() {
     this.isMouseDown = false;
     this.isDragging = false;
+    this.distanceX = 0;
+    this.distanceY = 0;
+    this.slides.classList.remove('isDragging');
     this.slides.style.transition = '';
   }
 

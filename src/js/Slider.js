@@ -144,50 +144,42 @@ class Slider {
 
     const totalSlides = this.thumbnailSlides.length;
     const maxIndex = totalSlides - 1;
+    const isVertical = this.thumbnailSlider.dataset.orientation === 'vertical';
 
     // Ограничиваем индекс
     this.currentIndex = Math.max(0, Math.min(index, maxIndex));
     this.isAnimating = true;
 
-    // Убираем класс active у всех миниатюр
-    this.thumbnailSlides.forEach((thumbnail) =>
-      thumbnail.classList.remove('active')
-    );
-
-    // Добавляем класс active к текущей миниатюре
-    const activeThumbnail = this.thumbnailSlides[this.currentIndex];
-    activeThumbnail.classList.add('active');
+    // Обновляем активную миниатюру
+    this.thumbnailSlides.forEach((thumbnail, i) => {
+      thumbnail.classList.toggle('active', i === this.currentIndex);
+    });
 
     const thumbnailsContainer = this.thumbnailSlider.querySelector('.slides');
+    const thumbnailSize = isVertical
+      ? this.thumbnailSlides[0].clientHeight
+      : this.thumbnailSlides[0].clientWidth;
+    const gap = this.gap;
 
-    // Вычисляем ширину миниатюры и промежутка
-    const thumbnailWidth = this.thumbnailSlides[0].clientWidth; // Ширина одной миниатюры
-    const gap = this.gap; // Ширина промежутка между миниатюрами
-
-    // Получаем количество видимых миниатюр
     const visibleThumbnails = this.getSlidesToShow(this.thumbnailSlider);
     const totalThumbnails = this.thumbnailSlides.length;
 
-    // Вычисляем смещение для миниатюр
-    let offset = this.currentIndex * (thumbnailWidth + gap);
-
-    // Ограничиваем смещение, чтобы оно не выходило за пределы
+    // Вычисляем смещение
+    let offset = this.currentIndex * (thumbnailSize + gap);
     const maxOffset =
-      (totalThumbnails - visibleThumbnails) * (thumbnailWidth + gap);
+      (totalThumbnails - visibleThumbnails) * (thumbnailSize + gap);
 
-    // Проверяем, нужно ли перемещать слайдер миниатюр
+    // Корректируем смещение для граничных случаев
     if (this.currentIndex >= totalThumbnails - visibleThumbnails + 1) {
-      // Если активный индекс выходит за правую границу
-      offset = maxOffset; // Прокручиваем до конца
+      offset = maxOffset;
     } else if (this.currentIndex < visibleThumbnails) {
-      // Если активный индекс выходит за левую границу
-      offset = 0; // Прокручиваем в начало
+      offset = 0;
     }
 
-    // Устанавливаем смещение для контейнера миниатюр
-    thumbnailsContainer.style.transform = `translateX(-${offset}px)`;
-
-    this.updateThumbnailPosition();
+    // Применяем трансформацию в зависимости от ориентации
+    thumbnailsContainer.style.transform = isVertical
+      ? `translateY(-${offset}px)`
+      : `translateX(-${offset}px)`;
 
     setTimeout(() => {
       this.isAnimating = false;
@@ -197,38 +189,33 @@ class Slider {
   updateThumbnailPosition() {
     if (!this.thumbnailSlider) return;
 
+    const isVertical = this.thumbnailSlider.dataset.orientation === 'vertical';
     const thumbnailsContainer = this.thumbnailSlider.querySelector('.slides');
     const totalThumbnails = this.thumbnailSlides.length;
-    const thumbnailWidth = this.thumbnailSlides[0].clientWidth;
+    const thumbnailSize = isVertical
+      ? this.thumbnailSlides[0].clientHeight
+      : this.thumbnailSlides[0].clientWidth;
     const gap = parseInt(this.thumbnailSlider.dataset.gap, 10);
-
-    // Получаем количество видимых миниатюр и преобразуем в число
     const visibleThumbnails = parseInt(
       this.thumbnailSlider.dataset.showing,
       10
     );
 
-    // Вычисляем смещение для миниатюр
-    let offset = this.currentIndex * (thumbnailWidth + gap);
-
-    // Ограничиваем смещение, чтобы оно не выходило за пределы
+    let offset = this.currentIndex * (thumbnailSize + gap);
     const maxOffset =
-      (totalThumbnails - visibleThumbnails) * (thumbnailWidth + gap);
+      (totalThumbnails - visibleThumbnails) * (thumbnailSize + gap);
 
-    // Проверяем, нужно ли перемещать слайдер миниатюр
+    // Корректировка смещения
     if (this.currentIndex > totalThumbnails - visibleThumbnails) {
-      // Если активный слайд находится в правой части, прокручиваем до конца
       offset = maxOffset;
     } else if (this.currentIndex < 0) {
-      // Если активный слайд находится в левой части, прокручиваем в начало
       offset = 0;
     }
 
-    // Устанавливаем смещение для контейнера миниатюр
-    thumbnailsContainer.style.transform = `translateX(-${Math.max(
-      0,
-      Math.min(offset, maxOffset)
-    )}px)`;
+    // Применяем трансформацию
+    thumbnailsContainer.style.transform = isVertical
+      ? `translateY(-${Math.max(0, Math.min(offset, maxOffset))}px)`
+      : `translateX(-${Math.max(0, Math.min(offset, maxOffset))}px)`;
   }
 
   updateSlidesWidth() {
@@ -620,7 +607,7 @@ class Slider {
         this.currentIndex * slideWidth + this.currentIndex * this.gap;
 
       if (this.slides.parentElement.dataset.slideOnce === 'true') {
-        const maxDistance = slideWidth * 1.5;
+        const maxDistance = slideWidth * 0.25;
         this.distanceX = Math.max(
           -maxDistance,
           Math.min(this.distanceX, maxDistance)
@@ -638,7 +625,7 @@ class Slider {
         this.currentIndex * slideHeight + this.currentIndex * this.gap;
 
       if (this.slides.parentElement.dataset.slideOnce === 'true') {
-        const maxDistance = slideHeight * 1.5;
+        const maxDistance = slideHeight * 0.25;
         this.distanceY = Math.max(
           -maxDistance,
           Math.min(this.distanceY, maxDistance)
@@ -660,7 +647,7 @@ class Slider {
     this.slides.style.transition = `transform ${this.speed}ms ease`;
 
     // Определяем минимальное расстояние для срабатывания свайпа (10px)
-    const minSwipeDistance = 10;
+    const minSwipeDistance = 25;
     const isHorizontalSwipe = Math.abs(this.distanceX) > minSwipeDistance;
     const isVerticalSwipe = Math.abs(this.distanceY) > minSwipeDistance;
 

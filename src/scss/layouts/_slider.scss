@@ -37,6 +37,7 @@
     transition-property: transform;
     transition: transform 0.3s ease;
     will-change: transform;
+    cursor: pointer;
     overflow: visible;
 
     & .glightbox {
@@ -44,6 +45,7 @@
     }
 
     &.isDragging {
+      cursor: grabbing;
       transition: none;
 
       & .glightbox {
@@ -62,7 +64,7 @@
     align-items: center;
     border-radius: 4px;
     user-select: none;
-    cursor: grab;
+    // cursor: grab;
 
     &:last-of-type {
       margin-right: 0;

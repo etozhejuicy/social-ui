@@ -853,6 +853,8 @@ document.querySelectorAll('.slider').forEach((sliderElement) => {
         updateCard(mainCardData, mainCard, currentIndex);
       });
   }
+
+  console.log(sliderElement.dataset.thumbnailSliderId);
 });
 
 // steps

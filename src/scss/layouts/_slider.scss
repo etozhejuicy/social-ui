@@ -70,6 +70,26 @@
       margin-right: 0;
     }
 
+    &.active {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        user-select: none;
+        box-shadow: inset 0 0 5px 5px var(--blue);
+        transition: box-shadow 0.25s ease-in-out;
+      }
+    }
+
     & > picture {
       width: 100%;
       height: 100%;
@@ -773,6 +793,30 @@
 
     &.reversed {
       flex-direction: row-reverse;
+    }
+
+    &.vertical {
+      flex-direction: column;
+      aspect-ratio: 1/1.125;
+
+      &.reversed {
+        flex-direction: column-reverse;
+      }
+
+      & > .slider {
+        &:is([data-orientation='vertical']) {
+          flex: 0;
+        }
+
+        &:not([data-orientation='vertical']) {
+          aspect-ratio: unset;
+          overflow: unset;
+        }
+
+        &:is([data-thumbnail-slider-id]) {
+          aspect-ratio: 1 / 1;
+        }
+      }
     }
 
     & > .slider {

@@ -496,7 +496,7 @@ section {
 }
 .layout-2x > * {
   max-width: 50%;
-  flex-basis: calc(50% - 15px);
+  flex-basis: calc(50% - 10px);
 }
 @media (max-width: 576px) {
   .layout-2x > * {
@@ -4541,6 +4541,26 @@ label.tabs-button > input {
 .slider .slide:last-of-type {
   margin-right: 0;
 }
+.slider .slide.active {
+  position: relative;
+}
+.slider .slide.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  box-shadow: inset 0 0 5px 5px var(--blue);
+  transition: box-shadow 0.25s ease-in-out;
+}
 .slider .slide > picture {
   width: 100%;
   height: 100%;
@@ -5161,6 +5181,23 @@ label.tabs-button > input {
 .slider-block-multiple.reversed {
   flex-direction: row-reverse;
 }
+.slider-block-multiple.vertical {
+  flex-direction: column;
+  aspect-ratio: 1/1.125;
+}
+.slider-block-multiple.vertical.reversed {
+  flex-direction: column-reverse;
+}
+.slider-block-multiple.vertical > .slider:is([data-orientation=vertical]) {
+  flex: 0;
+}
+.slider-block-multiple.vertical > .slider:not([data-orientation=vertical]) {
+  aspect-ratio: unset;
+  overflow: unset;
+}
+.slider-block-multiple.vertical > .slider:is([data-thumbnail-slider-id]) {
+  aspect-ratio: 1/1;
+}
 .slider-block-multiple > .slider:is([data-orientation=vertical]) {
   flex: 1;
 }
@@ -5376,7 +5413,6 @@ main {
   flex-direction: column;
   min-height: 100px;
   padding: 15px;
-  border-radius: 12px;
   background-color: var(--light-grey);
   color: var(--dark);
   text-decoration: none;
@@ -5396,13 +5432,7 @@ main {
   height: 100%;
   min-height: unset;
   padding: 0;
-  border-radius: 12px;
   aspect-ratio: 1/1;
-}
-@media (max-width: 720px) {
-  .card-photo {
-    border-radius: 6px;
-  }
 }
 .card-photo > img {
   width: 100%;

@@ -5,9 +5,7 @@ class Slider {
     this.slide = sliderElement.querySelectorAll('.slide');
     this.currentIndex = 0;
     this.orientation = sliderElement.dataset.orientation || 'horizontal';
-    this.preventClick = false;
-    this.allowScroll = false;
-    this.startTouchTime = 0;
+
     this.startX = 0;
     this.startY = 0;
     this.endX = 0;
@@ -35,7 +33,6 @@ class Slider {
 
     // Настройки слайдера
     this.autoplay = sliderElement.dataset.autoplay === 'true';
-    this.autoplayTime = parseInt(sliderElement.dataset.autoplayTime) || 5000;
     this.speed = parseInt(sliderElement.dataset.speed, 10) || 300;
     this.gap = parseInt(sliderElement.dataset.gap) || 0;
     this.infinite = sliderElement.dataset.infinite === 'true';
@@ -45,8 +42,6 @@ class Slider {
     this.isMouseDown = false;
     this.isDragging = false;
     this.paginationDots = [];
-    this.navigation = sliderElement?.querySelector('.navigation');
-    this.isSliderEnabled = true;
     this.showing = this.parseShowing(
       sliderElement.dataset.showing || '1|1|1|1'
     );
@@ -97,18 +92,6 @@ class Slider {
     });
   }
 
-  disableSwipe() {
-    this.isSliderEnabled = false;
-  }
-
-  enableSwipe() {
-    this.isSliderEnabled = true;
-  }
-
-  toggleSwipe(enable) {
-    this.isSliderEnabled = enable;
-  }
-
   updateNavVisibility() {
     const totalSlides = this.slide.length;
     const prevButton = this.slides.parentElement.querySelector('.slider-prev');
@@ -120,34 +103,22 @@ class Slider {
 
     if (prevButton) {
       prevButton.style.display = shouldShowControls ? '' : 'none';
-      prevButton.style.display = this.isSliderEnabled ? '' : 'none';
     }
 
     if (nextButton) {
       nextButton.style.display = shouldShowControls ? '' : 'none';
-      nextButton.style.display = this.isSliderEnabled ? '' : 'none';
     }
 
     if (paginationContainer) {
       paginationContainer.style.display = shouldShowControls ? '' : 'none';
-      paginationContainer.style.display = this.isSliderEnabled ? '' : 'none';
     }
 
     if (scrollbar) {
       scrollbar.style.display = shouldShowControls ? '' : 'none';
-      this.scrollbar.style.display = this.isSliderEnabled ? '' : 'none';
     }
 
     // Отключаем свайп, если слайдов меньше или равно видимым
     this.isSwipeEnabled = totalSlides > this.slidesToShow;
-
-    if (this.navigation) {
-      this.navigation.style.display = shouldShowControls ? '' : 'none';
-      this.navigation.style.display = this.isSwipeEnabled ? '' : 'none';
-      this.navigation.style.display = this.isSliderEnabled ? '' : 'none';
-
-      this.navigation.classList.toggle('hidden', !shouldShowControls);
-    }
   }
 
   initThumbnails() {
@@ -399,56 +370,40 @@ class Slider {
   }
 
   updateNavigationButtons() {
-    // if (this.isAnimating && this.autoplay) return;
-
     const prevButton = this.slides.parentElement.querySelector('.slider-prev');
     const nextButton = this.slides.parentElement.querySelector('.slider-next');
-    const totalSlides = this.slide.length;
-    const maxIndex = totalSlides - this.slidesToShow;
 
     if (prevButton) {
       prevButton.setAttribute('aria-label', 'Предыдущий слайд');
       prevButton.setAttribute('role', 'button');
 
       if (!this.infinite) {
-        const isDisabled = this.currentIndex === 0;
-        prevButton.classList.toggle('disabled', isDisabled);
-        prevButton.setAttribute('aria-disabled', isDisabled);
-
-        // Для автопрокрутки - временно включаем кнопку, если она отключена
-        if (this.autoplay && isDisabled) {
+        if (this.currentIndex === 0) {
+          prevButton.classList.add('disabled');
+          prevButton.setAttribute('aria-disabled', true);
+        } else {
           prevButton.classList.remove('disabled');
           prevButton.setAttribute('aria-disabled', false);
         }
-      } else {
-        prevButton.classList.remove('disabled');
-        prevButton.setAttribute('aria-disabled', false);
       }
     }
 
     if (nextButton) {
+      const totalSlides = this.slide.length;
+      const maxIndex = totalSlides - this.slidesToShow;
+
       nextButton.setAttribute('aria-label', 'Следующий слайд');
       nextButton.setAttribute('role', 'button');
 
       if (!this.infinite) {
-        const isDisabled = this.currentIndex >= maxIndex;
-        nextButton.classList.toggle('disabled', isDisabled);
-        nextButton.setAttribute('aria-disabled', isDisabled);
-
-        // Для автопрокрутки - временно включаем кнопку, если она отключена
-        if (this.autoplay && isDisabled) {
+        if (this.currentIndex >= maxIndex) {
+          nextButton.classList.add('disabled');
+          nextButton.setAttribute('aria-disabled', true);
+        } else {
           nextButton.classList.remove('disabled');
           nextButton.setAttribute('aria-disabled', false);
         }
-      } else {
-        nextButton.classList.remove('disabled');
-        nextButton.setAttribute('aria-disabled', false);
       }
-    }
-
-    // Если включен autoplay, обновляем кнопки после завершения анимации
-    if (this.autoplay && this.isAnimating) {
-      setTimeout(() => this.updateNavigationButtons(), this.speed);
     }
   }
 
@@ -484,15 +439,6 @@ class Slider {
       this.disableInteraction(event);
     });
 
-    this.slide.forEach((slide) => {
-      slide.addEventListener('click', (e) => {
-        if (this.isDragging || this.preventClick) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      });
-    });
-
     // Mouse events
     this.slides.addEventListener('mousedown', (event) => {
       // Игнорируем правую кнопку мыши
@@ -511,7 +457,7 @@ class Slider {
     // Touch events
     this.slides.addEventListener('touchstart', (event) => {
       this.startSwipe(event);
-      // event.preventDefault(); // Убрал, чтобы можно было сразу кликать
+      event.preventDefault();
 
       document.addEventListener('touchmove', this.handleTouchMove, {
         passive: false,
@@ -539,8 +485,6 @@ class Slider {
 
   startSwipe(startEvent) {
     this.isMouseDown = true;
-    this.allowScroll = false;
-    this.startTouchTime = Date.now();
 
     // Получаем координаты в зависимости от типа события
     if (startEvent.type === 'touchstart') {
@@ -555,53 +499,21 @@ class Slider {
     this.slides.style.transition = 'none';
   }
 
-  // disableInteraction(event) {
-  //   if (this.isDragging) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //     this.slides.classList.add('isDragging');
-
-  //     // let target = event.target;
-  //     let target = event.currentTarget;
-
-  //     while (target && target !== this.slides) {
-  //       if (
-  //         target.tagName === 'A' ||
-  //         target.hasAttribute('href') ||
-  //         target.hasAttribute('onclick') ||
-  //         target.onclick
-  //       ) {
-  //         event.preventDefault();
-  //         target.style.pointerEvents = 'none';
-  //         setTimeout(() => {
-  //           target.style.pointerEvents = '';
-  //         }, 100);
-  //         break;
-  //       }
-  //       target = target.parentElement;
-  //     }
-  //   }
-  // }
-
   disableInteraction(event) {
     if (this.isDragging) {
       event.preventDefault();
       event.stopPropagation();
-
-      // Если это клик после перетаскивания - блокируем
-      if (this.preventClick) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        return false;
-      }
+      this.slides.classList.add('isDragging');
 
       let target = event.target;
       while (target && target !== this.slides) {
         if (
           target.tagName === 'A' ||
-          target.tagName === 'BUTTON' ||
+          target.hasAttribute('href') ||
+          target.hasAttribute('onclick') ||
           target.onclick
         ) {
+          event.preventDefault();
           target.style.pointerEvents = 'none';
           setTimeout(() => {
             target.style.pointerEvents = '';
@@ -620,26 +532,8 @@ class Slider {
 
   handleTouchMove = (event) => {
     if (!this.isMouseDown || !this.isSwipeEnabled) return;
-
-    const touch = event.touches[0];
-    const diffX = Math.abs(touch.clientX - this.startX);
-    const diffY = Math.abs(touch.clientY - this.startY);
-
-    // Если вертикальное движение преобладает - разрешаем скролл
-    if (diffY > diffX && diffY > 10) {
-      this.allowScroll = true;
-      this.resetDragState();
-      return;
-    }
-
-    // Если горизонтальное движение - блокируем скролл и обрабатываем свайп
-    if (diffX > 10) {
-      event.preventDefault();
-      this.handleMove(touch.clientX, touch.clientY);
-    }
-
-    // this.handleMove(event.touches[0].clientX, event.touches[0].clientY);
-    // event.preventDefault();
+    this.handleMove(event.touches[0].clientX, event.touches[0].clientY);
+    event.preventDefault();
   };
 
   // Общий метод для обработки перемещения
@@ -691,53 +585,25 @@ class Slider {
 
   handleMouseUp = (event) => {
     if (!this.isMouseDown || !this.isSwipeEnabled) return;
-
-    if (this.isDragging) {
-      this.preventClick = true;
-      setTimeout(() => {
-        this.preventClick = false;
-      }, 100);
-    }
-
     this.handleEnd();
     document.removeEventListener('mousemove', this.handleMouseMove);
     document.removeEventListener('mouseup', this.handleMouseUp);
   };
 
   handleTouchEnd = (event) => {
-    // Если был скролл - не обрабатываем как свайп
-    if (this.allowScroll) {
-      this.allowScroll = false;
-      return;
-    }
-
     this.handleEnd();
+    document.removeEventListener('touchmove', this.handleTouchMove);
     document.removeEventListener('touchend', this.handleTouchEnd);
-
-    // this.handleEnd();
-    // document.removeEventListener('touchmove', this.handleTouchMove);
-    // document.removeEventListener('touchend', this.handleTouchEnd);
   };
 
   handleEnd() {
-    const isTap = Date.now() - this.startTouchTime < 300;
-
-    if (isTap && !this.isDragging) {
-      this.resetDragState();
-      return;
-    }
-
     this.isMouseDown = false;
     this.slides.style.transition = `transform ${this.speed}ms ease`;
 
-    // Определяем минимальное расстояние для срабатывания свайпа
-    const minSwipeDistance = 10;
-    const isHorizontalSwipe =
-      Math.abs(this.distanceX) > minSwipeDistance &&
-      Math.abs(this.distanceX) > Math.abs(this.distanceY);
-    const isVerticalSwipe =
-      Math.abs(this.distanceY) > minSwipeDistance &&
-      Math.abs(this.distanceY) > Math.abs(this.distanceX);
+    // Определяем минимальное расстояние для срабатывания свайпа (10px)
+    const minSwipeDistance = 25;
+    const isHorizontalSwipe = Math.abs(this.distanceX) > minSwipeDistance;
+    const isVerticalSwipe = Math.abs(this.distanceY) > minSwipeDistance;
 
     // Если перемещение слишком маленькое - это клик, игнорируем
     if (!isHorizontalSwipe && !isVerticalSwipe) {
@@ -747,29 +613,27 @@ class Slider {
 
     let slidesMoved;
 
-    if (this.orientation === 'vertical') {
-      const slideHeight =
-        (this.slides.getBoundingClientRect().height -
-          this.gap * (this.slidesToShow - 1)) /
-        this.slidesToShow;
-
-      // Если расстояние меньше минимального, но все равно срабатывает анимация
-      if (Math.abs(this.distanceY) < minSwipeDistance) {
-        slidesMoved = this.distanceY > 0 ? 1 : -1; // Перемещаем на один слайд
-      } else {
-        slidesMoved = Math.round(this.distanceY / slideHeight);
-      }
-    } else {
+    if (this.orientation === 'horizontal') {
       const slideWidth =
         (this.slides.getBoundingClientRect().width -
           this.gap * (this.slidesToShow - 1)) /
         this.slidesToShow;
 
-      // Если расстояние меньше минимального, но все равно срабатывает анимация
-      if (Math.abs(this.distanceX) < minSwipeDistance) {
-        slidesMoved = this.distanceX > 0 ? 1 : -1; // Перемещаем на один слайд
+      if (this.slides.parentElement.dataset.slideOnce === 'true') {
+        slidesMoved = this.distanceX > 0 ? 1 : -1;
       } else {
         slidesMoved = Math.round(this.distanceX / slideWidth);
+      }
+    } else {
+      const slideHeight =
+        (this.slides.getBoundingClientRect().height -
+          this.gap * (this.slidesToShow - 1)) /
+        this.slidesToShow;
+
+      if (this.slides.parentElement.dataset.slideOnce === 'true') {
+        slidesMoved = this.distanceY > 0 ? 1 : -1;
+      } else {
+        slidesMoved = Math.round(this.distanceY / slideHeight);
       }
     }
 
@@ -824,9 +688,11 @@ class Slider {
     this.autoplayInterval = setInterval(() => {
       this.showSlide(
         this.currentIndex +
-          (this.slides.parentElement.dataset.slideOnce === 'true' ? 1 : 1)
+          (this.slides.parentElement.dataset.slideOnce === 'true'
+            ? 1
+            : this.slidesToShow)
       );
-    }, this.speed + this.autoplayTime);
+    }, this.speed + 5000);
   }
 
   stopAutoplay() {
@@ -840,6 +706,6 @@ class Slider {
       if (this.autoplay) {
         this.startAutoplay();
       }
-    }, this.autoplayTime);
+    }, 5000);
   }
 }

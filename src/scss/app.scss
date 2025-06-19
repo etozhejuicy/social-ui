@@ -84,6 +84,8 @@ main {
   padding: 15px;
   background-color: var(--light-grey);
   color: var(--dark);
+  border: 1px solid var(--grey-darker-1);
+  border-radius: 10px;
   text-decoration: none;
   overflow: hidden;
   transition: 0.25s ease-in-out;

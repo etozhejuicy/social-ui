@@ -131,6 +131,8 @@ class Slider {
     if (paginationContainer) {
       paginationContainer.style.display = shouldShowControls ? '' : 'none';
       paginationContainer.style.display = this.isSliderEnabled ? '' : 'none';
+
+      paginationContainer.classList.toggle('hidden', !shouldShowControls);
     }
 
     if (scrollbar) {

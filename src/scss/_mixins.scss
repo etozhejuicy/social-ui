@@ -1,3 +1,6 @@
+@import './functions';
+@import './colors';
+
 @mixin input {
   display: inline;
   padding: 16px 25px;
@@ -290,4 +293,29 @@
   @media (max-width: 720px) {
     padding: 5px 0;
   }
+}
+
+// Миксин для тени
+@mixin shadow($color: #959595) {
+  box-shadow: 0 1px 3px rgba($color, 0.2), 0 1px 2px rgba($color, 0.1);
+}
+// Миксин для маленькой тени
+@mixin shadow-xs($color: #959595) {
+  box-shadow: 0 1px 2px rgba($color, 0.2);
+}
+// Миксин для средней тени
+@mixin shadow-sm($color: #959595) {
+  box-shadow: 0 2px 4px rgba($color, 0.2);
+}
+// Миксин для большой тени
+@mixin shadow-md($color: #959595) {
+  box-shadow: 0 4px 8px rgba($color, 0.2);
+}
+// Миксин для очень большой тени
+@mixin shadow-lg($color: #959595) {
+  box-shadow: 0 8px 16px rgba($color, 0.2);
+}
+// Миксин для экстра большой тени
+@mixin shadow-xl($color: #959595) {
+  box-shadow: 0 16px 32px rgba($color, 0.2);
 }

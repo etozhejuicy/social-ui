@@ -1,0 +1,29 @@
+@function hex-to-rgb($hex) {
+  // Проверяем, является ли входное значение строкой
+  @if type-of($hex) != 'string' {
+    @error 'Input must be a string in HEX format.';
+  }
+
+  // Удаляем символ '#' из начала строки, если он есть
+  $hex: str-slice($hex, 2);
+
+  // Если HEX имеет 3 символа, дублируем каждый символ
+  @if str-length($hex) == 3 {
+    $hex: str-slice($hex, 1, 1) + str-slice($hex, 1, 1) +
+          str-slice($hex, 2, 2) + str-slice($hex, 2, 2) +
+          str-slice($hex, 3, 3) + str-slice($hex, 3, 3);
+  }
+
+  // Проверяем, что длина HEX равна 6
+  @if str-length($hex) != 6 {
+    @error 'Input must be a valid HEX color code.';
+  }
+
+  // Извлекаем красный, зеленый и синий компоненты
+  $r: hex-str-to-int(str-slice($hex, 1, 2));
+  $g: hex-str-to-int(str-slice($hex, 3, 2));
+  $b: hex-str-to-int(str-slice($hex, 5, 2));
+
+  // Возвращаем результат в формате rgb
+  @return rgb($r, $g, $b);
+}

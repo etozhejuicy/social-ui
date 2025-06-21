@@ -17,7 +17,7 @@
     overflow-x: hidden;
     transition: 0.25s ease-in-out;
 
-    @media (max-width: 991px) {
+    @media (max-width: 991.98px) {
       position: fixed;
       top: 0;
       left: 0 !important;
@@ -40,7 +40,7 @@
       z-index: 100;
       display: flex;
 
-      @media (max-width: 991px) {
+      @media (max-width: 991.98px) {
         z-index: 10;
         transform: translate(0, 0);
       }
@@ -55,7 +55,7 @@
       gap: 0;
       width: 100%;
 
-      @media (max-width: 991px) {
+      @media (max-width: 991.98px) {
         flex-direction: column;
         gap: 20px;
         max-height: unset;
@@ -65,7 +65,7 @@
       & #backCatalogChapters {
         display: none;
 
-        @media (max-width: 991px) {
+        @media (max-width: 991.98px) {
           display: flex;
           padding: 0 10px;
         }
@@ -76,7 +76,7 @@
           display: flex;
         }
 
-        @media (max-width: 991px) {
+        @media (max-width: 991.98px) {
           & .catalog-menu--chapters {
             transform: translateX(-120%);
           }
@@ -101,7 +101,7 @@
       overflow-y: auto;
       transition: 0.25s ease-in-out;
 
-      @media (max-width: 991px) {
+      @media (max-width: 991.98px) {
         position: absolute;
         flex: unset;
         width: 100%;
@@ -124,7 +124,7 @@
       line-height: 1.4;
       text-decoration: none !important;
 
-      @media (max-width: 991px) {
+      @media (max-width: 991.98px) {
         padding: 10px;
         border-top: 1px solid var(--light-grey);
         font-size: 14px;
@@ -136,7 +136,7 @@
         line-height: 1;
         color: currentColor;
 
-        @media (max-width: 991px) {
+        @media (max-width: 991.98px) {
           content: '\0051';
           display: inline-block;
           font-family: 'Glyphter';
@@ -165,7 +165,7 @@
       padding: 0;
       margin: 0;
 
-      @media (max-width: 991px) {
+      @media (max-width: 991.98px) {
         gap: 20px;
         padding: 10px;
         border-top: 1px solid var(--light-grey);
@@ -180,7 +180,7 @@
         font-size: 16px;
         line-height: 1.4;
 
-        @media (max-width: 991px) {
+        @media (max-width: 991.98px) {
           font-size: 14px;
         }
 
@@ -199,7 +199,7 @@
           padding: 6px 0 0 64px;
           list-style: none;
 
-          @media (max-width: 991px) {
+          @media (max-width: 991.98px) {
             padding: 6px 0 0 42px;
           }
 
@@ -208,7 +208,7 @@
             font-size: 14px;
             line-height: 1.4;
 
-            @media (max-width: 991px) {
+            @media (max-width: 991.98px) {
               font-size: 12px;
             }
 
@@ -233,7 +233,7 @@
         background-color: var(--light-grey);
         overflow: hidden;
 
-        @media (max-width: 991px) {
+        @media (max-width: 991.98px) {
           width: 32px;
           height: 32px;
           flex: 0 0 32px;
@@ -260,7 +260,7 @@
     &--title {
       display: none;
 
-      @media (max-width: 991px) {
+      @media (max-width: 991.98px) {
         display: block;
         margin-block-end: 30px;
         font-size: 25px;
@@ -282,7 +282,7 @@
       overflow-y: auto;
       transition: 0.25s ease-in-out;
 
-      @media (max-width: 991px) {
+      @media (max-width: 991.98px) {
         position: absolute;
         display: flex;
         gap: 10px;
@@ -303,7 +303,7 @@
       text-decoration: none !important;
       transition: 0.25s ease-in-out;
 
-      @media (max-width: 720px) {
+      @media (max-width: 719.98px) {
         font-size: 14px;
       }
 

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
+    <meta name="description" content="Social-UI - Набор готовых HTML-шаблонов под любые цели на выбор" />
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180x180.png">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192x192.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/favicon-144x144.png">
+    <meta name="msapplication-config" content="../assets/browserconfig.xml">
+
+    <title>Slider.js - Social-UI</title>
+
+    <!-- primary styles -->
+    <link rel="stylesheet" href="../dist/css/app.min.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="../" class="header-logo h2">
+                Social-UI
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h1>
+                    Динамическая позиция элемента
+                </h1>
+
+                <p>
+                    Подробная инструкция по внедрению функции в проект
+                </p>
+
+                <div>
+                    <img src="../assets/images/examples/pages/position/image.png" alt="Динамическая позиция элемента" style="max-width:600px;" class="w-100 pointer-events-none" />
+                </div>
+
+                <div class="layout">
+                    <textarea class="input w-100" rows="10" readonly>
+function updateElemPos() {
+  const elementToMove = document.querySelector('#elementToMove');
+  const targetPlace = document.querySelector('#targetPlace');
+  const returnPlace = document.querySelector('#returnPlace');
+
+  if (!elementToMove) return;
+
+  const isMobile = window.innerWidth < 992;
+  const isInTargetPlace = elementToMove.parentElement === targetPlace;
+  const isInReturnPlace = elementToMove.parentElement === returnPlace;
+
+  if (isMobile && !isInTargetPlace) {
+    targetPlace.insertBefore(elementToMove, targetPlace.firstChild);
+  } else if (!isMobile && !isInReturnPlace) {
+    returnPlace.insertBefore(elementToMove, returnPlace.firstChild);
+  }
+}
+
+updateElemPos();
+                                </textarea>
+                </div>
+
+                <p class="mt-20">
+                    <a href="../assets/docs/js/dynamicPos.js" class="h4" target="_blank" download="">Скачать dynamicPos.js</a>
+                    <small>(~1kb)</small>
+                </p>
+
+                <div id="instructions">
+                    <p>
+                        Чтобы эта функция заработала, достаточно в вашем js-коде сделать вызов функции:
+                    </p>
+                    <p class="card"><code><span class="text-red">updateElemPos();</span></code></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- modals -->
+    <div class="modal modal-appointment" data-modal-id="appointment">
+        <button class="btn btn-close" btn-close-modal>
+            <i class="icon-cross"></i>
+        </button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-title h2"></div>
+                <p class="modal-description text-center"></p>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../src/js/vendor/scroller.js"></script>
+    <script src="../src/js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="../src/js/vendor/glightbox.min.js"></script>
+    <script src="../src/js/Slider.js"></script>
+    <script src="../src/js/app.js"></script>
+</body>
+
+</html>

@@ -15,7 +15,7 @@
   outline: none;
   transition: 0.25s ease-in-out;
 
-  @media (max-width: 720px) {
+  @media (max-width: 719.98px) {
     font-size: 12px;
     padding: 14px 16px;
   }
@@ -62,7 +62,7 @@
   font-size: 14px;
   transition: 0.25s ease-in-out;
 
-  @media (max-width: 720px) {
+  @media (max-width: 719.98px) {
     font-size: 12px;
   }
 }
@@ -96,7 +96,7 @@
   background-color: var(--blue);
   transition: 0.25s ease-in-out;
 
-  @media (max-width: 991px) {
+  @media (max-width: 991.98px) {
     padding: 10px 20px;
     font-size: 14px;
   }
@@ -190,7 +190,7 @@
 @mixin button-min {
   font-size: 14px;
 
-  @media (max-width: 720px) {
+  @media (max-width: 719.98px) {
     font-size: 12px;
   }
 }
@@ -218,7 +218,7 @@
   cursor: pointer;
   transition: 0.25s ease-in-out;
 
-  @media (max-width: 720px) {
+  @media (max-width: 719.98px) {
     padding: 14px 20px;
     font-size: 12px;
   }
@@ -290,7 +290,7 @@
     box-shadow: none;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 719.98px) {
     padding: 5px 0;
   }
 }

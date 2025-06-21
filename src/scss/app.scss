@@ -44,7 +44,7 @@ body {
   background-color: #ffffff;
   overflow-x: clip;
 
-  @media (max-width: 991px) {
+  @media (max-width: 991.98px) {
     font-size: 14px;
   }
 }
@@ -89,7 +89,7 @@ main {
   overflow: hidden;
   transition: 0.25s ease-in-out;
 
-  @media (max-width: 720px) {
+  @media (max-width: 719.98px) {
     padding: 10px;
   }
 

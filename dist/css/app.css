@@ -2,6 +2,7 @@
 @import '../../src/scss/vendor/normalize.css';
 @import '../../src/scss/vendor/glightbox.min.css';
 :root {
+  color-scheme: light dark;
   --green: #26b857;
   --orange: #f78a31;
   --red: #f73131;
@@ -73,6 +74,7 @@
 }
 
 :root {
+  color-scheme: light dark;
   --green: #26b857;
   --orange: #f78a31;
   --red: #f73131;
@@ -144,6 +146,7 @@
 }
 
 :root {
+  color-scheme: light dark;
   --green: #26b857;
   --orange: #f78a31;
   --red: #f73131;
@@ -1077,7 +1080,7 @@ p {
 }
 
 a {
-  color: var(--dark);
+  color: inherit;
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
   text-underline-offset: 4px;
@@ -3668,11 +3671,9 @@ label.tabs-button > input {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(13, 49, 128)), color-stop(50%, rgb(47, 95, 196)), color-stop(70%, rgb(76, 128, 237)), color-stop(84%, rgb(76, 128, 237)), to(rgb(59, 111, 223)));
-  background: linear-gradient(180deg, rgb(13, 49, 128) 0%, rgb(47, 95, 196) 50%, rgb(76, 128, 237) 70%, rgb(76, 128, 237) 84%, rgb(59, 111, 223) 100%);
+  background: light-dark(var(--white), var(--dark-darker-1));
   padding: 16px 0;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom: 1px solid light-dark(var(--light-grey), var(--dark-grey-darker-2));
 }
 @media (max-width: 991.98px) {
   .header {
@@ -3695,7 +3696,7 @@ label.tabs-button > input {
   width: -moz-fit-content;
   width: fit-content;
   text-decoration: none !important;
-  color: var(--white);
+  color: light-dark(var(--dark), var(--white));
   -webkit-transform-origin: center;
           transform-origin: center;
   -webkit-transition: 0.25s ease-in-out;
@@ -3714,7 +3715,7 @@ label.tabs-button > input {
   -webkit-filter: blur(6px);
           filter: blur(6px);
   border-radius: 100%;
-  background: radial-gradient(circle, rgba(2, 0, 36, 0.5) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
+  background: radial-gradient(circle, light-dark(rgba(2, 0, 36, 0.125), rgba(2, 0, 36, 0.5)) 0%, light-dark(rgba(9, 9, 121, 0.5), rgb(9, 9, 121)) 35%, light-dark(rgba(0, 212, 255, 0.5), rgb(0, 212, 255)) 100%);
   pointer-events: none;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -3728,7 +3729,6 @@ label.tabs-button > input {
   transition: 0.25s ease-in-out;
 }
 .header-logo:hover {
-  color: var(--white);
   -webkit-transform: rotate(-2.5deg);
           transform: rotate(-2.5deg);
 }
@@ -6183,8 +6183,8 @@ body {
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.04em;
-  color: var(--dark);
-  background-color: #ffffff;
+  color: light-dark(var(--dark), var(--white));
+  background: light-dark(var(--white), var(--dark-darker-2));
   overflow-x: clip;
 }
 @media (max-width: 991.98px) {
@@ -6233,9 +6233,9 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 15px;
-  background-color: var(--light-grey);
-  color: var(--dark);
-  border: 1px solid var(--grey-darker-1);
+  background: light-dark(var(--light-grey), var(--dark-grey-darker-2));
+  color: light-dark(var(--dark), var(--white));
+  border: 1px solid light-dark(var(--grey-darker-1), var(--dark-grey-darker-1));
   border-radius: 10px;
   text-decoration: none;
   overflow: hidden;

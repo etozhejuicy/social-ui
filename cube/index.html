@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
+    <meta name="description" content="Social-UI - Набор готовых HTML-шаблонов под любые цели на выбор" />
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180x180.png">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192x192.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/favicon-144x144.png">
+    <meta name="msapplication-config" content="../assets/browserconfig.xml">
+
+    <title>Slider.js - Social-UI</title>
+
+    <!-- primary styles -->
+    <link rel="stylesheet" href="../dist/css/app.min.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="../" class="header-logo h2">
+                WTD
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h1>
+                    Методология Cube CSS и другие основы
+                </h1>
+
+                <div class="mb-30">
+                    <img src="https://piccalilli.imgix.net/images/cube/logo.svg?format=auto&q=60&w=1500"
+                        alt="Динамическая позиция элемента" style="max-width:600px;"
+                        class="w-100 pointer-events-none" />
+                </div>
+
+                <p>
+                    Не буду много расписывать о "Кубе", потому что вы можете сами прочитать о нем <a
+                        href="https://cube.fyi/" target="_blank" rel="nofollow">здесь</a> и <a
+                        href="https://every-layout.dev/layouts/stack/" target="_blank" rel="nofollow">здесь</a>, а скажу
+                    в двух словах: никаких rem'ов, никаких GRID, никаких калькуляций в значениях CSS-свойств, меньше
+                    CSS-переменных и ни в коем случае никаких больших вложенностей в HTML.
+                </p>
+
+                <p>
+                    Причем, некоторые правила компании невелирует сами понятия Cube CSS, отчего сложится впечатление,
+                    что это гибридный формат интерпритации самой методологии. Основные правила, которых стоит
+                    придерживаться, изложены в предыдущем абзаце. Наглядный пример можно посмотреть в одном из проектов:
+                </p>
+
+                <div class="card mb-20">
+                    <ul class="m-0">
+                        <li>
+                            <a href="https://stomatfakel.ru/" target="_blank" rel="nofollow"
+                                class="underlined">stomatfakel.ru</a>
+                        </li>
+
+                        <li>
+                            <a href="https://tipo.intrid.ru/" target="_blank" rel="nofollow"
+                                class="underlined">tipo.intrid.ru</a>
+                        </li>
+
+                        <li>
+                            <a href="https://lineholod.ru/" target="_blank" rel="nofollow"
+                                class="underlined">lineholod.ru</a>
+                        </li>
+
+                        <li>
+                            <a href="https://test.intrid.ru/yd" target="_blank" rel="nofollow"
+                                class="underlined">test.intrid.ru/yd</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <p>
+                    С чем придется смириться:
+                </p>
+
+                <ul>
+                    <li>
+                        Методология БЭМ может являться признаком множества споров
+                    </li>
+
+                    <li>
+                        Методология mobile-first (по мнению владельца бизнеса) является ошибкой. Просто смиритесь и
+                        пишите код от большего к меньшему (desktop-first), даже если проект имеет дизайн-структуру
+                        mobile-first.
+                    </li>
+
+                    <li>
+                        Использование единиц измерения REM - является фатальной ошибкой и плохо тестируется (по мнению
+                        компании)
+                    </li>
+
+                    <li>
+                        Использование вычислений (калькуляции) в CSS - является ошибкой (по мнению компании), которую
+                        необходимо избегать
+                    </li>
+
+                    <li>
+                        Использование GRID контейнеров в CSS - является ошибкой и плохо тестируется (по мнению владельца
+                        бизнеса), которую необходимо избегать
+                    </li>
+
+                    <li>
+                        Использование большого количества вложенности в HTML - является фатальной ошибкой: старайтесь
+                        избегать, а в некоторых случаях включать смекалку и использовать минимальное количество
+                        вложенности в HTML
+                    </li>
+
+                    <li>
+                        Использование CSS-переменных типа var(--color) возможно, но только для служебных стилей.
+                        Например, использовать для белого цвета (#ffffff) переменную нельзя, потому что это является
+                        фатальной ошибкой (по мнению владельца бизнеса)
+                    </li>
+
+                    <li>
+                        Написание такого класса для шапки сайта, как: <code
+                            class="text-red">< header class="header" > < / header ></code> - лучше так не делать, но все
+                        же возможно
+                    </li>
+
+                    <li>
+                        Узкая система брейкпоинтов: 360 ➡️ 720 ➡️ 1000 ➡️ 1500. На самом деле, можно сделать так: 0 ➡️
+                        576 ➡️ 720 ➡️ 992 ➡️ 1024 ➡️ 1200 ➡️ 1360 ➡️ 1440 ➡️ 1500 (не для всех случаев), чаще будете
+                        использовать: 0 ➡️ 720 ➡️ 992 ➡️ 1200 ➡️ 1500
+                    </li>
+
+                    <li>
+                        Нет возможности создавать отдельные повторяющиейся элементы, например бургер-меню, не должно
+                        быть отдельным элементом. Если навигация есть в шапке, то при схлопывании на брейкпоинте она же
+                        становится схлопнутым бургер-меню
+                    </li>
+
+                    <li>
+                        Во FLEXBOX-контейнерах обращение к дочерним элементам лучше писать так: <code
+                            class="text-green">.flex > * {};</code>
+                    </li>
+
+                    <li>
+                        Придется дорабатывать или иногда додумывать дизайн-структуру в макете Figma, собирать свой
+                        icon-pack для работы (советую использовать сервис <a href="https://glyphter.com/"
+                            target="_blank" rel="nofollow" class="underlined">Glyther</a>)
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- modals -->
+    <div class="modal modal-appointment" data-modal-id="appointment">
+        <button class="btn btn-close" btn-close-modal>
+            <i class="icon-cross"></i>
+        </button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-title h2"></div>
+                <p class="modal-description text-center"></p>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../src/js/vendor/scroller.js"></script>
+    <script src="../src/js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="../src/js/vendor/glightbox.min.js"></script>
+    <script src="../src/js/Slider.js"></script>
+    <script src="../src/js/app.js"></script>
+</body>
+
+</html>

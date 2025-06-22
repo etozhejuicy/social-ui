@@ -40,8 +40,8 @@ body {
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.04em;
-  color: var(--dark);
-  background-color: #ffffff;
+  color: light-dark(var(--dark), var(--white));
+  background: light-dark(var(--white), var(--dark-darker-2));
   overflow-x: clip;
 
   @media (max-width: 991.98px) {
@@ -81,9 +81,10 @@ main {
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background-color: var(--light-grey);
-  color: var(--dark);
-  border: 1px solid var(--grey-darker-1);
+  background: light-dark(var(--light-grey), var(--dark-grey-darker-2));
+  // background-color: var(--light-grey);
+  color: light-dark(var(--dark), var(--white));
+  border: 1px solid light-dark(var(--grey-darker-1), var(--dark-grey-darker-1));
   border-radius: 10px;
   text-decoration: none;
   overflow: hidden;

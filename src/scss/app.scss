@@ -63,7 +63,7 @@ main {
   aspect-ratio: 21 / 9;
   overflow: hidden;
 
-  @media (max-width: 576px) {
+  @media (max-width: 575.98px) {
     aspect-ratio: 16 / 10;
   }
 
@@ -96,6 +96,12 @@ main {
 
   &:hover {
     text-decoration: none;
+  }
+
+  &-hover {
+    &:hover {
+      border-color: light-dark(var(--grey-darker-2), var(--dark-grey-darker-2));
+    }
   }
 
   &-photo {

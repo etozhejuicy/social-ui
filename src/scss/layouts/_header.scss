@@ -7,11 +7,9 @@
   flex-direction: column;
   flex-wrap: wrap;
   background: light-dark(var(--white), var(--dark-darker-1));
-  // background: linear-gradient(180deg,rgba(13, 49, 128, 1) 0%, rgba(47, 95, 196, 1) 50%, rgba(76, 128, 237, 1) 70%, rgba(76, 128, 237, 1) 84%, rgb(59, 111, 223) 100%);
   padding: 16px 0;
-  // border-bottom-left-radius: 20px;
-  // border-bottom-right-radius: 20px;
   border-bottom: 1px solid light-dark(var(--light-grey), var(--dark-grey-darker-2));
+  transition: 0.25s ease-in-out;
 
   @media (max-width: 991.98px) {
     flex-direction: row;
@@ -55,8 +53,6 @@
         transform: scale(1.5) rotate(2.5deg) translate(-30%, -40%);
       }
     }
-
-    
 
     & > img,
     & > svg {

@@ -749,9 +749,9 @@ section {
   &-2x {
     & > * {
       max-width: 50%;
-      flex-basis: calc(50% - calc(var(--layout-gap) / 2));
+      flex-basis: calc(50% - (var(--layout-gap) / 2));
 
-      @media (max-width: 576px) {
+      @media (max-width: 575.98px) {
         max-width: 100%;
         flex-basis: 100%;
       }
@@ -761,14 +761,14 @@ section {
   &-3x {
     & > * {
       max-width: 33.333333%;
-      flex-basis: calc(33.333333% - calc(var(--layout-gap) / 2));
+      flex-basis: calc(33.333333% - (var(--layout-gap) / 1.5));
 
-      @media (max-width: 1200px) {
+      @media (max-width: 1199.98px) {
         max-width: 50%;
-        flex-basis: calc(50% - calc(var(--layout-gap) / 2));
+        flex-basis: calc(50% - (var(--layout-gap) / 2));
       }
 
-      @media (max-width: 576px) {
+      @media (max-width: 575.98px) {
         max-width: 100%;
         flex-basis: 100%;
       }
@@ -778,19 +778,19 @@ section {
   &-4x {
     & > * {
       max-width: 25%;
-      flex-basis: calc(25% - calc(var(--layout-gap) / 2));
+      flex-basis: calc(25% - (var(--layout-gap) / 2));
 
-      @media (max-width: 1200px) {
+      @media (max-width: 1199.98px) {
         max-width: 33.333333%;
-        flex-basis: calc(33.333333% - calc(var(--layout-gap) / 2));
+        flex-basis: calc(33.333333% - (var(--layout-gap) / 1.5));
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 899.98px) {
         max-width: 50%;
-        flex-basis: calc(50% - calc(var(--layout-gap) / 2));
+        flex-basis: calc(50% - (var(--layout-gap) / 2));
       }
 
-      @media (max-width: 576px) {
+      @media (max-width: 575.98px) {
         max-width: 100%;
         flex-basis: 100%;
       }
@@ -843,6 +843,10 @@ section {
 
   &-orange {
     background-color: var(--orange) !important;
+  }
+
+  &-white {
+    background-color: var(--white) !important;
   }
 }
 
@@ -1208,6 +1212,22 @@ ol {
       border-radius: 30px 30px 0 0;
     }
   }
+
+  &-0 {
+    border-radius: 0 !important;
+  }
+
+  &-10 {
+    border-radius: 10px !important;
+  }
+
+  &-20 {
+    border-radius: 20px !important;
+  }
+
+  &-30 {
+    border-radius: 30px !important;
+  }
 }
 
 // shadows
@@ -1249,7 +1269,7 @@ ol {
   font-style: normal;
   font-weight: 400;
   line-height: 1.25;
-  color: var(--dark-grey);
+  color: light-dark(var(--dark), var(--white));
 
   @media (max-width: 719.98px) {
     margin-bottom: 20px;
@@ -1285,8 +1305,7 @@ ol {
       }
 
       &::before {
-        font-family: 'stelecom' !important;
-        content: '\62';
+        content: '›';
         font-style: normal !important;
         font-weight: normal !important;
         font-variant: normal !important;
@@ -1299,7 +1318,7 @@ ol {
     }
 
     &:last-child {
-      color: var(--dark);
+      color: light-dark(var(--dark-grey-darker-2), var(--text-muted));
     }
   }
 }
@@ -2949,7 +2968,7 @@ label {
           max-width: calc(33.333333% - 12px);
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1199.98px) {
           flex: 1 0 calc(50% - 20px);
           max-width: calc(50% - 10px);
         }

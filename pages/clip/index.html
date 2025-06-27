@@ -29,7 +29,7 @@
     <meta name="msapplication-TileImage" content="../assets/favicon-144x144.png">
     <meta name="msapplication-config" content="../assets/browserconfig.xml">
 
-    <title>Динамическая позиция элемента - WTD</title>
+    <title>Используем Clip для ваших элементов в HTML - WTD</title>
 
     <!-- primary styles -->
     <link rel="stylesheet" href="../../dist/css/app.min.css" />
@@ -50,7 +50,7 @@
                 <div class="breadcrumbs">
                     <a href="../../">Главная</a>
                     <span></span>
-                    <span>Динамическая позиция элемента</span>
+                    <span>Методы работы с Clip</span>
                 </div>
             </div>
         </section>
@@ -58,53 +58,35 @@
         <section class="pt-0">
             <div class="container">
                 <h1>
-                    Динамическая позиция элемента
+                    Используем Clip для ваших элементов в HTML
                 </h1>
 
                 <p>
-                    Подробная инструкция по внедрению функции в проект
+                    Первый случай моего использования я уже не найду, однако, из последнего вы сможете наблюдать на этом
+                    сайте: <a href="https://tipo.intrid.ru/" target="_blank"
+                        class="link fw-500 underlined">https://tipo.intrid.ru/</a>
                 </p>
 
-                <div class="w-fit rounded-10 bg-white">
-                    <img src="../../assets/images/examples/pages/position/image.png" alt="Динамическая позиция элемента"
-                        style="max-width:600px;" class="w-100 pointer-events-none" />
+                <div class="w-fit rounded-10 bg-white border-1 border-red">
+                    <img src="../../assets/images/examples/pages/clip/demo.png"
+                        alt="Пример использования Clip в действии" style="max-width:800px;"
+                        class="w-100 pointer-events-none" />
                 </div>
 
-                <div class="layout mt-30">
-                    <textarea class="input w-100" rows="10" readonly>
-function updateElemPos() {
-  const elementToMove = document.querySelector('#elementToMove');
-  const targetPlace = document.querySelector('#targetPlace');
-  const returnPlace = document.querySelector('#returnPlace');
-
-  if (!elementToMove) return;
-
-  const isMobile = window.innerWidth < 992;
-  const isInTargetPlace = elementToMove.parentElement === targetPlace;
-  const isInReturnPlace = elementToMove.parentElement === returnPlace;
-
-  if (isMobile && !isInTargetPlace) {
-    targetPlace.insertBefore(elementToMove, targetPlace.firstChild);
-  } else if (!isMobile && !isInReturnPlace) {
-    returnPlace.insertBefore(elementToMove, returnPlace.firstChild);
-  }
-}
-
-updateElemPos();
-                                </textarea>
-                </div>
-
-                <p class="mt-20">
-                    <a href="../../assets/docs/js/dynamicPos.js" class="h4" target="_blank" download="">Скачать
-                        dynamicPos.js</a>
-                    <small>(~1kb)</small>
+                <p>
+                    В данном случае я использовал Clip для создания интерактивной карточки услуги для клиентов. Border
+                    как бы проходит по касательной всех изгибов и в результате карточка имеет форму, а не просто
+                    прямоугольник.
                 </p>
 
-                <div id="instructions">
-                    <p>
-                        Чтобы эта функция заработала, достаточно в вашем js-коде сделать вызов функции:
-                    </p>
-                    <p class="card"><code><span class="text-red">updateElemPos();</span></code></p>
+                <p>
+                    Чтобы использовать Clip, вы можете просто добавить атрибут `clip-path`. Однако, чтобы это сработало
+                    так, как показано на скрине - потребуется добавить дополнительную обертку, которая в свою очередь
+                    будет иметь схожий `clip-path`.
+                </p>
+
+                <div class="card shadow">
+                    Документация в процессе написания.
                 </div>
             </div>
         </section>

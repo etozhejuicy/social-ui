@@ -127,3 +127,36 @@ main {
     flex: 1;
   }
 }
+
+.parent {
+  width: 100px;
+  height: 100px;
+  color: #ff0000;
+  & > svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    &.active {
+      & > use {
+        &:first-child {
+          display: flex;
+        }
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+
+    & > use {
+      &:first-child {
+        display: none;
+      }
+
+      &:last-child {
+        display: flex;
+      }
+    }
+  }
+}

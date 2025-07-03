@@ -5080,4 +5080,27 @@ main {
   flex-direction: column;
   align-items: flex-start;
   flex: 1;
-}/*# sourceMappingURL=app.css.map */
+}
+
+.parent {
+  width: 100px;
+  height: 100px;
+  color: #ff0000;
+}
+.parent > svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.parent > svg.active > use:first-child {
+  display: flex;
+}
+.parent > svg.active > use:last-child {
+  display: none;
+}
+.parent > svg > use:first-child {
+  display: none;
+}
+.parent > svg > use:last-child {
+  display: flex;
+}

@@ -2,6 +2,9 @@ class Modal {
   constructor() {
     this.openButtons = document.querySelectorAll('[data-modal-open]');
     this.closeButtons = document.querySelectorAll('[data-modal-close]');
+    this.title = '';
+    this.content = '';
+    this.selector = '';
     this.events();
   }
 
@@ -14,7 +17,11 @@ class Modal {
             '[data-modal-id="' + modalKey + '"]'
           );
 
-          this.open(modal);
+          this.title = e.currentTarget.dataset.modalTitle;
+          this.content = e.currentTarget.dataset.modalContent;
+          this.selector = e.currentTarget.dataset.modalClass;
+
+          this.open(modal, this.title, this.content, this.selector);
         } catch (error) {
           console.error(
             `Ошибка, окно не найдено: ${e.currentTarget.dataset.modalOpen} \n ${error}`
@@ -48,9 +55,16 @@ class Modal {
     });
   }
 
-  open(modal) {
+  open(modal, title, content, selector) {
+    const modalTitle = modal?.querySelector('.modal-title');
+    const modalContent = modal?.querySelector('.modal-body');
+
     modal.classList.add('show');
     document.documentElement.classList.add('modal-open');
+
+    if (title) modalTitle.innerHTML = title;
+    if (content) modalContent.innerHTML = content;
+    if (selector) modal?.classList.add(selector);
   }
 
   close(modal) {

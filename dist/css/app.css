@@ -4120,42 +4120,19 @@ label.tabs-button > input {
 .modal-footer > * {
   flex: 1;
 }
-.modal-appointment .modal-dialog {
-  max-width: 536px;
-}
-.modal-appointment .modal-content {
-  max-width: 360px;
-  margin: 0 auto;
-}
-@media (max-width: 719.98px) {
-  .modal-appointment .modal-content {
-    max-width: 310px;
-  }
-}
-.modal-appointment .modal-title {
-  max-width: 320px;
-  text-align: center;
-}
-@media (max-width: 719.98px) {
-  .modal-appointment .modal-title {
-    max-width: 100%;
-  }
-}
-.modal-map .modal-dialog {
-  aspect-ratio: 1/1;
-  padding: 0;
-  overflow: hidden;
-}
-@media (min-width: 992px) {
-  .modal-map .modal-dialog {
-    aspect-ratio: 21/9;
-    min-width: 85%;
-  }
-}
-.modal-map .modal-content #map-wrapper {
+.modal #map-wrapper {
   position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 21/9;
+  max-height: 450px;
 }
-.modal-map .modal-content #map-wrapper::before {
+@media (max-width: 719.98px) {
+  .modal #map-wrapper {
+    aspect-ratio: 1/1;
+  }
+}
+.modal #map-wrapper::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -4168,19 +4145,13 @@ label.tabs-button > input {
   transform: translate(-50%, -50%);
   animation: spinner-spin 1s infinite linear;
 }
-.modal-map .modal-content iframe {
+.modal #map-wrapper iframe {
   width: 100%;
   height: 100%;
   border: 0;
 }
-.modal-map .modal-content > div {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-.modal-map .modal-content > div iframe {
-  width: 100%;
-  height: 100%;
+.modal-wider .modal-dialog {
+  max-width: 900px;
 }
 .modal-notify .modal-dialog {
   max-width: 320px;

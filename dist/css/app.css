@@ -724,6 +724,18 @@ section {
 .align-items-center {
   align-items: center;
 }
+.align-items-start {
+  align-items: flex-start;
+}
+.align-items-end {
+  align-items: flex-end;
+}
+.align-items-stretch {
+  align-items: stretch;
+}
+.align-items-unset {
+  align-items: unset;
+}
 
 .pointer-events-all {
   pointer-events: all !important;

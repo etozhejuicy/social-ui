@@ -3977,7 +3977,7 @@ label.tabs-button > input {
 
 .modal {
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: light-dark(rgba(0, 0, 0, 0.35), rgba(255, 255, 255, 0.35));
   top: 0;
   right: 0;
   bottom: 0;
@@ -3987,7 +3987,7 @@ label.tabs-button > input {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 50px 10px 10px 10px;
+  padding: 20px;
   visibility: hidden;
   opacity: 0;
   overflow-x: hidden;
@@ -4002,17 +4002,7 @@ label.tabs-button > input {
 }
 @media (max-width: 991.98px) {
   .modal {
-    padding: 80px 10px 10px 10px;
-  }
-}
-@media (max-width: 719.98px) {
-  .modal {
-    padding: 70px 10px 10px 10px;
-  }
-}
-@media (max-width: 575.98px) {
-  .modal {
-    padding: 60px 10px 10px 10px;
+    padding: 10px;
   }
 }
 .modal.show {
@@ -4049,10 +4039,11 @@ label.tabs-button > input {
   margin: auto;
   padding: 45px;
   border-radius: 30px;
-  color: #ffffff;
-  background-color: #2e385f;
+  color: light-dark(var(--dark), var(--white));
+  background-color: light-dark(var(--white), var(--dark));
   transform: scale(0.75);
   transition: 0.4s ease;
+  will-change: transform;
 }
 @media (max-width: 719.98px) {
   .modal-dialog {
@@ -4078,7 +4069,7 @@ label.tabs-button > input {
   background-color: unset;
   box-shadow: none !important;
   border: none;
-  color: var(--dark);
+  color: currentColor;
   transform: translate(0, 0);
   transition: 0.4s ease;
 }

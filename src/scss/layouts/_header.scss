@@ -6,10 +6,20 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background: light-dark(var(--white), var(--dark-darker-1));
+  background: rgba(255, 255, 255, 0.1);
   padding: 16px 0;
+  // backdrop-filter: blur(10px) url(#glass-distortion);
   border-bottom: 1px solid light-dark(var(--light-grey), var(--dark-grey-darker-2));
   transition: 0.25s ease-in-out;
+
+  &::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  backdrop-filter: blur(4px);
+  filter: url(#liquid-lens);
+}
 
   @media (max-width: 991.98px) {
     flex-direction: row;

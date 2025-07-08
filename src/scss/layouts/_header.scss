@@ -24,7 +24,7 @@
     width: fit-content;
     text-decoration: none !important;
     color: light-dark(var(--dark), var(--white));
-    text-shadow: 0 0 2px light-dark(var(--white), var(--dark));
+    text-shadow: 0 0 4px light-dark(var(--white), var(--dark));
     transform-origin: center;
     transition: 0.25s ease-in-out;
     will-change: transform;

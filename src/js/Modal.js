@@ -18,9 +18,15 @@ class Modal {
             '[data-modal-id="' + modalKey + '"]'
           );
 
-          this.title = e.currentTarget.dataset.modalTitle;
-          this.content = e.currentTarget.dataset.modalContent;
-          this.selector = e.currentTarget.dataset.modalClass;
+          e.currentTarget.dataset.modalTitle
+            ? (this.title = e.currentTarget.dataset.modalTitle)
+            : null;
+          e.currentTarget.dataset.modalContent
+            ? (this.content = e.currentTarget.dataset.modalContent)
+            : null;
+          e.currentTarget.dataset.modalClass
+            ? (this.selector = e.currentTarget.dataset.modalClass)
+            : null;
 
           this.open(modal);
         } catch (error) {
@@ -74,7 +80,10 @@ class Modal {
       const modals = document.querySelectorAll('.modal');
 
       modals.forEach((modal) => {
-        if (event.target === modal) {
+        if (
+          event.target === modal ||
+          event.target.closest('[data-modal-close]')
+        ) {
           this.close(modal);
         }
       });
@@ -121,13 +130,26 @@ class Modal {
       content ? (this.content = content) : null;
       selector ? (this.selector = selector) : null;
 
-      modalTitle.innerHTML = this.title;
-      modalContent.innerHTML = this.content;
-      modal?.classList.add(this.selector);
+      this.title && this.title !== ''
+        ? (modalTitle.innerHTML = this.title)
+        : null;
+      this.content && this.content !== ''
+        ? (modalContent.innerHTML = this.content)
+        : null;
+      this.selector && this.content !== ''
+        ? modal?.classList.add(this.selector)
+        : null;
     }
   }
 
+  resetState() {
+    this.title = '';
+    this.content = '';
+    this.selector = '';
+  }
+
   close(modal) {
+    this.resetState(modal);
     modal.classList.remove('show');
     document.documentElement.classList.remove('modal-open');
   }

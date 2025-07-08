@@ -3753,19 +3753,11 @@ label.tabs-button > input {
       flex-wrap: wrap;
   background: rgba(255, 255, 255, 0.1);
   padding: 16px 0;
+  -webkit-backdrop-filter: blur(10px) url(#glass-distortion);
+          backdrop-filter: blur(10px) url(#glass-distortion);
   border-bottom: 1px solid light-dark(var(--light-grey), var(--dark-grey-darker-2));
   -webkit-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
-}
-.header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
-  -webkit-filter: url(#liquid-lens);
-          filter: url(#liquid-lens);
 }
 @media (max-width: 991.98px) {
   .header {
@@ -3789,6 +3781,7 @@ label.tabs-button > input {
   width: fit-content;
   text-decoration: none !important;
   color: light-dark(var(--dark), var(--white));
+  text-shadow: 0 0 2px light-dark(var(--white), var(--dark));
   -webkit-transform-origin: center;
           transform-origin: center;
   -webkit-transition: 0.25s ease-in-out;

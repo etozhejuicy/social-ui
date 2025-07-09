@@ -764,6 +764,35 @@ section {
   }
 }
 
+.justify {
+  &-content {
+    &-baseline {
+      justify-content: baseline;
+    }
+    &-start {
+      justify-content: flex-start;
+    }
+    &-end {
+      justify-content: flex-end;
+    }
+    &-center {
+      justify-content: center;
+    }
+    &-stretch {
+      justify-content: stretch;
+    }
+    &-between {
+      justify-content: space-between;
+    }
+    &-around {
+      justify-content: space-around;
+    }
+    &-evenly {
+      justify-content: space-evenly;
+    }
+  }
+}
+
 // pointer-events
 .pointer {
   &-events {
@@ -815,8 +844,8 @@ section {
   --layout-gap: 20px;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
+  // align-items: stretch;
+  // justify-content: flex-start;
   flex-wrap: wrap;
   gap: var(--layout-gap);
   width: 100%;

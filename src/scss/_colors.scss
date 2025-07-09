@@ -3,6 +3,7 @@
   
   --green: #26b857;
   --orange: #f78a31;
+  --yellow: #f7dd31;
   --red: #f73131;
   --pink: #ff51b1;
   --purple: #8c14cd;
@@ -39,6 +40,14 @@
   --orange-lighter-1: #{lighten(#f78a31, 10%)};
   --orange-lighter-2: #{lighten(#f78a31, 20%)};
   --orange-lighter-3: #{lighten(#f78a31, 30%)};
+
+  // Yellow
+  --yellow-darker-1: #{darken(#f7dd31, 10%)};
+  --yellow-darker-2: #{darken(#f7dd31, 20%)};
+  --yellow-darker-3: #{darken(#f7dd31, 30%)};
+  --yellow-lighter-1: #{lighten(#f7dd31, 10%)};
+  --yellow-lighter-2: #{lighten(#f7dd31, 20%)};
+  --yellow-lighter-3: #{lighten(#f7dd31, 30%)};
 
   // Red
   --red-darker-1: #{darken(#f73131, 10%)};

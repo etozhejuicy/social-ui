@@ -384,7 +384,7 @@ class Slider {
   }
 
   showSlide(index) {
-    if (this.isAnimating) return;
+    if (this.isAnimating) return this.currentIndex;
 
     const totalSlides = this.slide.length;
     const maxIndex = totalSlides - this.slidesToShow;
@@ -442,6 +442,8 @@ class Slider {
       this.updatePaginationDots();
       this.resetAutoplay();
     }, this.speed);
+
+    return this.currentIndex;
   }
 
   updateNavigationButtons() {
@@ -498,8 +500,35 @@ class Slider {
     }
   }
 
+  // Возвращает индекс текущего слайда (начиная с 0)
   getCurrentIndex() {
     return this.currentIndex;
+  }
+
+  // Возвращает индекс слайда по его DOM-элементу
+  getSlideIndex(slideElement) {
+    return Array.from(this.slide).indexOf(slideElement);
+  }
+
+  // Возвращает массив индексов текущих видимых слайдов
+  getVisibleSlidesIndexes() {
+    const indexes = [];
+    const totalSlides = this.slide.length;
+
+    for (let i = 0; i < this.slidesToShow; i++) {
+      const index = (this.currentIndex + i) % totalSlides;
+      indexes.push(index);
+    }
+
+    return indexes;
+  }
+
+  // Возвращает DOM-элемент слайда по индексу
+  getSlideByIndex(index) {
+    if (index >= 0 && index < this.slide.length) {
+      return this.slide[index];
+    }
+    return null;
   }
 
   onSlideChange(index) {

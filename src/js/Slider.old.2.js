@@ -292,6 +292,21 @@ class Slider {
       : this.slides.style.setProperty('--slides-gap', `0px`);
   }
 
+  // createPaginationDots() {
+  //   const paginationContainer =
+  //     this.slides.parentElement.querySelector('.pagination');
+  //   if (paginationContainer) {
+  //     this.slide.forEach((_, index) => {
+  //       const dot = document.createElement('div');
+  //       dot.classList.add('pagination-dot');
+  //       dot.addEventListener('click', () => this.showSlide(index));
+  //       paginationContainer.appendChild(dot);
+  //       this.paginationDots.push(dot);
+  //     });
+  //     this.updatePaginationDots();
+  //   }
+  // }
+
   updatePagination() {
     // Удаляем старые точки
     const paginationContainer =
@@ -512,6 +527,14 @@ class Slider {
     // return index + 1;
   }
 
+  // updatePaginationDots() {
+  //   if (this.paginationDots) {
+  //     this.paginationDots.forEach((dot, index) => {
+  //       dot.classList.toggle('active', index === Math.round(this.currentIndex));
+  //     });
+  //   }
+  // }
+
   addEventListeners() {
     const handleSwipe = (direction) => {
       this.stopAutoplay();
@@ -592,6 +615,34 @@ class Slider {
     this.isDragging = false;
     this.slides.style.transition = 'none';
   }
+
+  // disableInteraction(event) {
+  //   if (this.isDragging) {
+  //     event.preventDefault();
+  //     event.stopPropagation();
+  //     this.slides.classList.add('isDragging');
+
+  //     // let target = event.target;
+  //     let target = event.currentTarget;
+
+  //     while (target && target !== this.slides) {
+  //       if (
+  //         target.tagName === 'A' ||
+  //         target.hasAttribute('href') ||
+  //         target.hasAttribute('onclick') ||
+  //         target.onclick
+  //       ) {
+  //         event.preventDefault();
+  //         target.style.pointerEvents = 'none';
+  //         setTimeout(() => {
+  //           target.style.pointerEvents = '';
+  //         }, 100);
+  //         break;
+  //       }
+  //       target = target.parentElement;
+  //     }
+  //   }
+  // }
 
   disableInteraction(event) {
     if (this.isDragging) {

@@ -1,12 +1,128 @@
 // block
 .calculation {
   &-block {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 40px;
+    width: 100%;
+    height: 100%;
     padding: 20px;
-    border-radius: 10px;
-    border: 1px dashed light-dark(var(--dark), var(--grey));
+    color: #ffffff;
+    background-color: var(--dark-blue);
+    background-image: url('../../assets/images/examples/calculation/bg-xl.webp');
+    background-size: cover;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    scroll-margin-block-start: 100px;
+    scroll-margin-block-end: 100px;
+    overflow: hidden;
 
-    @media (max-width: 575.98px) {
-      padding: 10px;
+    @media (max-width: 991px) {
+      flex-direction: column;
+      gap: 0;
+      padding: 0;
+      // background-image: url('../../assets/images/examples/calculation/bg.webp');
+      background-image: unset;
+      border-radius: 30px 30px 0 0;
+      scroll-margin-block-start: 80px;
+      scroll-margin-block-end: 80px;
+    }
+
+    &--left {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px 0 0 20px;
+
+      @media (max-width: 991px) {
+        padding: 40px 15px;
+        background-image: url('../../assets/images/examples/calculation/bg.webp');
+        background-size: cover;
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        border-radius: 30px 30px 0 0;
+      }
+
+      & > * {
+        max-width: 410px;
+      }
+    }
+
+    &--right {
+      position: relative;
+      display: flex;
+      flex: 1 0 60%;
+      width: 100%;
+      padding: 50px;
+      background-color: var(--white);
+      color: var(--dark);
+      border-radius: 15px 20px;
+      overflow: hidden;
+
+      @media (max-width: 991px) {
+        padding: 38px 10px 0;
+        border-radius: 0;
+      }
+    }
+
+    &--info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+
+      & > p {
+        margin: 0;
+      }
+    }
+
+    &--manager {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+
+      @media (max-width: 720px) {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+      }
+
+      & > img {
+        width: 86px;
+        height: 86px;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+
+        @media (max-width: 720px) {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      & > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+
+        @media (max-width: 720px) {
+          gap: 0;
+        }
+
+        & > b {
+          font-size: 23px;
+
+          @media (max-width: 991px) {
+            font-size: 14px;
+          }
+        }
+      }
     }
   }
 }

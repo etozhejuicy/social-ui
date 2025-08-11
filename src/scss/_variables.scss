@@ -2084,43 +2084,7 @@ input[type='password'],
 input[type='number'],
 input[type='search'],
 textarea {
-  display: inline-block;
-  padding: 14px 20px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.25;
-  color: var(--dark);
-  border-radius: 8px;
-  border: 1px solid var(--grey);
-  background-color: #ffffff;
-  outline: none;
-  transition: border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-
-  @media (max-width: 719.98px) {
-    font-size: 14px;
-  }
-
-  &::placeholder {
-    color: var(--dark-grey);
-    transition: color 0.25s ease-in-out;
-  }
-
-  &:focus {
-    border-color: var(--blue); // Изменено на более заметный цвет при фокусе
-    box-shadow: 0 0 5px rgba(38, 85, 184, 0.5); // Добавлен эффект тени при фокусе
-
-    &::placeholder {
-      color: transparent; // Скрыть текст плейсхолдера при фокусе
-      transition: color 0.25s ease-in-out;
-    }
-  }
-
-  &:disabled {
-    background-color: var(--light-grey); // Цвет фона для отключенных полей
-    border-color: var(--dark-grey); // Цвет границы для отключенных полей
-    color: var(--dark-grey); // Цвет текста для отключенных полей
-    cursor: not-allowed; // Курсор для отключенных полей
-  }
+  @include input;
 }
 
 input[type='number'] {

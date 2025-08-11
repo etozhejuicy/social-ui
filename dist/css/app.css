@@ -2136,17 +2136,19 @@ input[type=password],
 input[type=number],
 input[type=search],
 textarea {
-  display: inline-block;
-  padding: 14px 20px;
+  display: inline;
+  padding: 16px 25px;
+  font-family: "SF UI Text";
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.25;
-  color: var(--dark);
-  border-radius: 8px;
-  border: 1px solid var(--grey);
-  background-color: #ffffff;
+  line-height: 1.4;
+  color: light-dark(var(--dark), var(--light));
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: light-dark(var(--grey), var(--grey));
+  background-color: light-dark(var(--white), var(--dark));
   outline: none;
-  transition: border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 @media (max-width: 719.98px) {
   .input,
@@ -2157,6 +2159,7 @@ textarea {
   input[type=search],
   textarea {
     font-size: 14px;
+    padding: 14px 16px;
   }
 }
 .input::placeholder,
@@ -2166,8 +2169,8 @@ input[type=password]::placeholder,
 input[type=number]::placeholder,
 input[type=search]::placeholder,
 textarea::placeholder {
-  color: var(--dark-grey);
-  transition: color 0.25s ease-in-out;
+  color: light-dark(var(--grey), var(--light-grey));
+  transition: 0.25s ease-in-out;
 }
 .input:focus,
 input[type=text]:focus,
@@ -2200,6 +2203,16 @@ textarea:disabled {
   border-color: var(--dark-grey);
   color: var(--dark-grey);
   cursor: not-allowed;
+}
+.input::selection,
+input[type=text]::selection,
+input[type=email]::selection,
+input[type=password]::selection,
+input[type=number]::selection,
+input[type=search]::selection,
+textarea::selection {
+  background: var(--blue);
+  color: var(--white);
 }
 
 input[type=number] {
@@ -2770,12 +2783,13 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   padding: 16px 25px;
   font-family: "SF UI Text";
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
-  color: var(--dark);
+  color: light-dark(var(--dark), var(--light));
   border-radius: 10px;
-  border: 1px solid var(--grey);
-  background-color: #ffffff;
+  border: 1px solid;
+  border-color: light-dark(var(--grey), var(--grey));
+  background-color: light-dark(var(--white), var(--dark));
   outline: none;
   transition: 0.25s ease-in-out;
   width: 100%;
@@ -2786,20 +2800,31 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 @media (max-width: 719.98px) {
   .counter > input {
-    font-size: 12px;
+    font-size: 14px;
     padding: 14px 16px;
   }
 }
 .counter > input::placeholder {
-  color: var(--grey);
+  color: light-dark(var(--grey), var(--light-grey));
   transition: 0.25s ease-in-out;
 }
 .counter > input:focus {
   border-color: var(--blue);
+  box-shadow: 0 0 5px rgba(38, 85, 184, 0.5);
 }
 .counter > input:focus::placeholder {
   color: transparent;
-  transition: 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+}
+.counter > input:disabled {
+  background-color: var(--light-grey);
+  border-color: var(--dark-grey);
+  color: var(--dark-grey);
+  cursor: not-allowed;
+}
+.counter > input::selection {
+  background: var(--blue);
+  color: var(--white);
 }
 @media (max-width: 719.98px) {
   .counter > input {
@@ -5044,7 +5069,7 @@ label.tabs-button > input {
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background: light-dark(var(--light-grey), var(--dark-grey-darker-2));
+  background: light-dark(var(--light-grey), var(--dark));
   color: light-dark(var(--dark), var(--white));
   border: 1px solid light-dark(var(--grey-darker-1), var(--dark-grey-darker-1));
   border-radius: 10px;
@@ -5059,6 +5084,12 @@ label.tabs-button > input {
 }
 .card:hover {
   text-decoration: none;
+}
+.card-scale {
+  will-change: transform;
+}
+.card-scale:hover {
+  transform: scale(1.0125);
 }
 .card-hover:hover {
   border-color: light-dark(var(--grey-darker-2), var(--dark-grey-darker-2));
@@ -5490,6 +5521,7 @@ body {
   letter-spacing: -0.04em;
   color: light-dark(var(--dark), var(--white));
   background: light-dark(var(--white), var(--dark-darker-2));
+  background-image: linear-gradient(200deg, rgba(161, 37, 128, 0.25) 0%, rgba(70, 32, 173, 0.25) 40%, rgba(84, 6, 185, 0.25) 60%, rgba(161, 37, 128, 0.25) 100%);
   overflow-x: clip;
 }
 @media (max-width: 991.98px) {

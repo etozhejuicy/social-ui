@@ -6,32 +6,46 @@
   padding: 16px 25px;
   font-family: $font-family;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
-  color: var(--dark);
+  color: light-dark(var(--dark), var(--light));
   border-radius: 10px;
-  border: 1px solid var(--grey);
-  background-color: #ffffff;
+  border: 1px solid;
+  border-color: light-dark(var(--grey), var(--grey));
+  background-color: light-dark(var(--white), var(--dark));
   outline: none;
   transition: 0.25s ease-in-out;
 
   @media (max-width: 719.98px) {
-    font-size: 12px;
+    font-size: 14px;
     padding: 14px 16px;
   }
 
   &::placeholder {
-    color: var(--grey);
+    color: light-dark(var(--grey), var(--light-grey));
     transition: 0.25s ease-in-out;
   }
 
   &:focus {
     border-color: var(--blue);
+    box-shadow: 0 0 5px rgba(38, 85, 184, 0.5);
 
     &::placeholder {
       color: transparent;
-      transition: 0.25s ease-in-out;
+      transition: color 0.25s ease-in-out;
     }
+  }
+
+  &:disabled {
+    background-color: var(--light-grey);
+    border-color: var(--dark-grey);
+    color: var(--dark-grey);
+    cursor: not-allowed;
+  }
+
+  &::selection {
+    background: var(--blue);
+    color: var(--white);
   }
 }
 

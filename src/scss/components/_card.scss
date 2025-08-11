@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background: light-dark(var(--light-grey), var(--dark-grey-darker-2));
+  background: light-dark(var(--light-grey), var(--dark));
   // background-color: var(--light-grey);
   color: light-dark(var(--dark), var(--white));
   border: 1px solid light-dark(var(--grey-darker-1), var(--dark-grey-darker-1));
@@ -19,6 +19,14 @@
 
   &:hover {
     text-decoration: none;
+  }
+
+  &-scale {
+    will-change: transform;
+
+    &:hover {
+      transform: scale(1.0125);
+    }
   }
 
   &-hover {
@@ -46,12 +54,11 @@
   &-glass {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(0.25em) brightness(1.2) saturate(1.2);
-    box-shadow:
-          0 0.1em 0.25em 0 oklch(0 0 0 / 15%), 
-          0 0 1em 0 oklch(0 0 0 / 12.5%),      
-          inset 0.075em 0.075em 0.05em 0 oklch(1 0 0 / 40%), 
-          inset -0.075em -0.075em 0.05em 0 oklch(1 0 0 / 40%), 
-          inset 0 0 3em .5em oklch(0 0 0 / 20%); 
+    box-shadow: 0 0.1em 0.25em 0 oklch(0 0 0 / 15%),
+      0 0 1em 0 oklch(0 0 0 / 12.5%),
+      inset 0.075em 0.075em 0.05em 0 oklch(1 0 0 / 40%),
+      inset -0.075em -0.075em 0.05em 0 oklch(1 0 0 / 40%),
+      inset 0 0 3em 0.5em oklch(0 0 0 / 20%);
   }
 
   & .card-content {

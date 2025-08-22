@@ -1335,6 +1335,13 @@ ol {
   }
 }
 
+// appearence
+button,
+input,
+label {
+  touch-action: manipulation;
+}
+
 // shadows
 // .shadow {
 //   @include shadow;

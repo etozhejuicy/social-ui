@@ -5,6 +5,8 @@
 // 	content: "<p>Содержимое модального окна</p>"
 // });
 
+// ...... //
+
 // Создание с кастомным ID и классом
 // modal.create({
 // 	id: "custom-modal",
@@ -12,6 +14,8 @@
 // 	content: "<p>Контент</p>",
 // 	className: "my-custom-modal"
 // });
+
+// ...... //
 
 // Создание без автоматического открытия
 // const myModal = modal.create({
@@ -24,6 +28,8 @@
 // myModal.classList.add("show");
 // document.documentElement.classList.add("modal-open");
 
+// ...... //
+
 // Обновление существующего модального окна
 // Если окно с таким ID уже существует, оно будет обновлено
 // modal.create({
@@ -31,6 +37,32 @@
 // 	title: "Новый заголовок",
 // 	content: "Новое содержимое"
 // });
+
+// ...... //
+
+// // Открытие по ID ([data-modal-id])
+// const modal = new Modal();
+
+// // Создаем модальное окно
+// modal.create({
+// 	id: "dynamic-modal",
+// 	title: "Динамическое окно",
+// 	content: "<p>Создано программно</p>",
+// 	className: "custom-modal",
+// 	showImmediately: false,
+// });
+
+// // Позже открываем его по ID
+// modal.open("dynamic-modal");
+
+// ...... //
+
+// // Традиционное использование (по селектору):
+// const modal = new Modal();
+
+// // По-прежнему работает с DOM-элементом
+// const modalElement = document.querySelector('[data-modal-id="existing-modal"]');
+// modal.open(modalElement);
 
 class Modal {
 	constructor() {

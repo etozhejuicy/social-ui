@@ -1,0 +1,89 @@
+.alert {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	padding: 1em 2.5em 1em 1.5em;
+	background-color: light-dark(var(--white), var(--dark));
+	color: light-dark(var(--dark), var(--white));
+	border: 1px solid light-dark(var(--grey-darker-1), var(--dark-lighter-1));
+	border-radius: 10px;
+	transition: 0.25s ease-in-out;
+
+	&-orange {
+		background-color: light-dark(
+			var(--orange-lighter-2),
+			var(--orange-darker-1)
+		);
+		color: light-dark(var(--dark), var(--white));
+		border: 1px solid
+			light-dark(var(--orange-darker-1), var(--orange-lighter-1));
+	}
+
+	&-blue {
+		background-color: light-dark(
+			var(--blue-lighter-3),
+			var(--blue-darker-1)
+		);
+		color: light-dark(var(--dark), var(--white));
+		border: 1px solid
+			light-dark(var(--blue-darker-1), var(--blue-lighter-1));
+	}
+
+	&-purple {
+		background-color: light-dark(
+			var(--purple-lighter-3),
+			var(--purple-darker-1)
+		);
+		color: light-dark(var(--dark), var(--white));
+		border: 1px solid
+			light-dark(var(--purple-darker-1), var(--purple-lighter-1));
+	}
+
+	&-success {
+		background-color: light-dark(
+			var(--green-lighter-2),
+			var(--green-darker-1)
+		);
+		color: light-dark(var(--dark), var(--white));
+		border: 1px solid
+			light-dark(var(--green-darker-1), var(--green-lighter-1));
+	}
+
+	&-danger {
+		background-color: light-dark(
+			var(--yellow-lighter-2),
+			var(--yellow-darker-1)
+		);
+		color: light-dark(var(--dark), var(--dark));
+		border: 1px solid
+			light-dark(var(--yellow-darker-1), var(--yellow-lighter-1));
+	}
+
+	&-error {
+		background-color: light-dark(var(--red-lighter-2), var(--red-darker-1));
+		color: light-dark(var(--dark), var(--white));
+		border: 1px solid light-dark(var(--red-darker-1), var(--red-lighter-1));
+	}
+
+	&-close {
+		@include button(transparent, null);
+		position: absolute;
+		top: 6px;
+		right: 6px;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 1 / 1;
+		width: 28px;
+		height: 28px;
+		padding: 0.75em;
+		font-size: 24px;
+		color: inherit;
+
+		@media (max-width: 991.98px) {
+			padding: 0.25em;
+			font-size: 20px;
+		}
+	}
+}

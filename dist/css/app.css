@@ -1,6 +1,6 @@
 @charset "UTF-8";
-@import '../../src/scss/vendor/normalize.css';
-@import '../../src/scss/vendor/glightbox.min.css';
+@import "../../src/scss/vendor/normalize.css";
+@import "../../src/scss/vendor/glightbox.min.css";
 :root {
   color-scheme: light dark;
   --green: #26b857;
@@ -910,8 +910,14 @@ section {
 .bg-blue {
   background-color: var(--blue) !important;
 }
+.bg-red {
+  background-color: var(--red) !important;
+}
 .bg-orange {
   background-color: var(--orange) !important;
+}
+.bg-yellow {
+  background-color: var(--yellow) !important;
 }
 .bg-white {
   background-color: var(--white) !important;
@@ -1741,14 +1747,14 @@ button-yellow > i {
 button:hover,
 button.hover {
   filter: brightness(90%);
-  box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.5), inset 4px 4px 10px rgba(255, 255, 255, 0.4);
+  box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.25), inset 4px 4px 10px rgba(255, 255, 255, 0.24);
 }
 .btn:focus:active, .btn.focus, .btn.active,
 button:focus:active,
 button.focus,
 button.active {
   filter: brightness(110%);
-  box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.4), inset 4px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.24), inset 4px 4px 10px rgba(0, 0, 0, 0.25);
 }
 .btn.disabled, .btn:disabled,
 button.disabled,
@@ -3176,6 +3182,97 @@ label.tabs-button > input {
 .notification > p {
   text-align: center;
   margin: 0;
+}
+
+.alert {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 1em 2.5em 1em 1.5em;
+  background-color: light-dark(var(--white), var(--dark));
+  color: light-dark(var(--dark), var(--white));
+  border: 1px solid light-dark(var(--grey-darker-1), var(--dark-lighter-1));
+  border-radius: 10px;
+  transition: 0.25s ease-in-out;
+}
+.alert-orange {
+  background-color: light-dark(var(--orange-lighter-2), var(--orange-darker-1));
+  color: light-dark(var(--dark), var(--white));
+  border: 1px solid light-dark(var(--orange-darker-1), var(--orange-lighter-1));
+}
+.alert-blue {
+  background-color: light-dark(var(--blue-lighter-3), var(--blue-darker-1));
+  color: light-dark(var(--dark), var(--white));
+  border: 1px solid light-dark(var(--blue-darker-1), var(--blue-lighter-1));
+}
+.alert-purple {
+  background-color: light-dark(var(--purple-lighter-3), var(--purple-darker-1));
+  color: light-dark(var(--dark), var(--white));
+  border: 1px solid light-dark(var(--purple-darker-1), var(--purple-lighter-1));
+}
+.alert-success {
+  background-color: light-dark(var(--green-lighter-2), var(--green-darker-1));
+  color: light-dark(var(--dark), var(--white));
+  border: 1px solid light-dark(var(--green-darker-1), var(--green-lighter-1));
+}
+.alert-danger {
+  background-color: light-dark(var(--yellow-lighter-2), var(--yellow-darker-1));
+  color: light-dark(var(--dark), var(--dark));
+  border: 1px solid light-dark(var(--yellow-darker-1), var(--yellow-lighter-1));
+}
+.alert-error {
+  background-color: light-dark(var(--red-lighter-2), var(--red-darker-1));
+  color: light-dark(var(--dark), var(--white));
+  border: 1px solid light-dark(var(--red-darker-1), var(--red-lighter-1));
+}
+.alert-close {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 14px 20px;
+  font-family: "SF UI Text";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  text-transform: none;
+  border-radius: 10px;
+  box-shadow: none;
+  border: 1px solid transparent;
+  background-color: transparent;
+  transition: 0.25s ease-in-out;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  width: 28px;
+  height: 28px;
+  padding: 0.75em;
+  font-size: 24px;
+  color: inherit;
+}
+@media (max-width: 991.98px) {
+  .alert-close {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+.alert-close > i {
+  transition: 0.25s ease-in-out;
+}
+@media (max-width: 991.98px) {
+  .alert-close {
+    padding: 0.25em;
+    font-size: 20px;
+  }
 }
 
 .header {
@@ -5527,7 +5624,7 @@ body {
   letter-spacing: -0.04em;
   color: light-dark(var(--dark), var(--white));
   background: light-dark(var(--white), var(--dark-darker-2));
-  background-image: linear-gradient(200deg, rgba(161, 37, 128, 0.25) 0%, rgba(70, 32, 173, 0.25) 40%, rgba(84, 6, 185, 0.25) 60%, rgba(161, 37, 128, 0.25) 100%);
+  background-image: linear-gradient(200deg, rgba(161, 37, 128, 0.125) 0%, rgba(70, 32, 173, 0.125) 40%, rgba(84, 6, 185, 0.125) 60%, rgba(161, 37, 128, 0.125) 100%);
   overflow-x: clip;
 }
 @media (max-width: 991.98px) {

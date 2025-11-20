@@ -1747,7 +1747,6 @@ button-yellow > i {
 button:hover,
 button.hover {
   filter: brightness(90%);
-  box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.25), inset 4px 4px 10px rgba(255, 255, 255, 0.24);
 }
 .btn:focus:active, .btn.focus, .btn.active,
 button:focus:active,
